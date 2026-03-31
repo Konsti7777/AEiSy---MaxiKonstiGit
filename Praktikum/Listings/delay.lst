@@ -1,0 +1,134 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000         ; ////////////////////////////////////
+    3 00000000         ; // SOURCE FILE   delay.s          //
+    4 00000000         ; ////////////////////////////////////
+    5 00000000         
+    6 00000000         ;/******************************************************
+                       ********************
+    7 00000000         ; *  Autonome Eingebettete Systeme    (AEiSy)           
+                                          *                                    
+                                                                               
+                             *
+    8 00000000         ; ******************************************************
+                       ********************
+    9 00000000         ; *  PROJECT       Basisproject                         
+                                          *
+   10 00000000         ; *  MODULE        delay.s                              
+                                          *
+   11 00000000         ; *  REVISION      1.0                                  
+                                          *
+   12 00000000         ; *  LAST AUTHOR                                        
+                                          *
+   13 00000000         ; *  LAST MODIFIED                                      
+                                          *
+   14 00000000         ; *  RESPONSIBLE   Peter Raab                           
+                                          *
+   15 00000000         ; ******************************************************
+                       ********************
+   16 00000000         ; *  PURPOSE:                                           
+                                          *
+   17 00000000         ; *   Delay of CPU execution; implements an exact time d
+                       eley of R0 * 1ms   *
+   18 00000000         ; *                                                     
+                                          *
+   19 00000000         ; ******************************************************
+                       ********************
+   20 00000000         ; *  REMARKS:                                           
+                                          *
+   21 00000000         ; *   SYSCLK = 48 MHz                                   
+                                          *
+   22 00000000         ; *                                                     
+                                          *
+   23 00000000         ; ******************************************************
+                       ********************
+   24 00000000         ; *  CHANGE HISTORY:                                    
+                                          *
+   25 00000000         ; *  Revision   Date          Author      Description   
+                                          *
+   26 00000000         ; *     1.0      01.02.2022    P. Raab     creation     
+                                          *
+   27 00000000         ; *                                                     
+                                          *
+   28 00000000         ; ******************************************************
+                       *******************/
+   29 00000000         
+   30 00000000         
+   31 00000000                 AREA             DELAY, CODE, READONLY
+   32 00000000         
+   33 00000000                 THUMB
+   34 00000000         
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   35 00000000         
+   36 00000000         delayms FUNCTION                     ; start of function
+                                                             
+   37 00000000                 EXPORT           delayms
+   38 00000000 B402            PUSH             {R1}        ; store used regist
+                                                            ers
+   39 00000002         
+   40 00000002 F642 61E0       MOV              R1, #12000  ; = 0.001 s / (4 * 
+                                                            1/48000000Hz)
+   41 00000006 FB00 F001       MUL              R0, R0, R1
+   42 0000000A         
+   43 0000000A 00 00           ALIGN            4           ; following instruc
+                                                            tion to be 32Bit al
+                                                            igned
+   44 0000000C         loop_delay
+   45 0000000C F1A0 0001       SUB              R0, R0, #1
+   46 00000010 2800            CMP              R0, #0
+   47 00000012 D1FB            BNE              loop_delay
+   48 00000014 BF00            NOP
+   49 00000016         
+   50 00000016 BC02            POP              {R1}
+   51 00000018 4770            BX               lr
+   52 0000001A         
+   53 0000001A         
+   54 0000001A                 ENDFUNC                      ; end of function
+   55 0000001A                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4 --apcs=interw
+ork --depend=.\objects\delay.d -o.\objects\delay.o -IC:\Users\mar9750m\AppData\
+Local\Arm\Packs\Keil\STM32G4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32G4xx\Incl
+ude --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 536" --pred
+efine="STM32G474xx SETA 1" --list=.\listings\delay.lst delay.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DELAY 00000000
+
+Symbol: DELAY
+   Definitions
+      At line 31 in file delay.s
+   Uses
+      None
+Comment: DELAY unused
+delayms 00000000
+
+Symbol: delayms
+   Definitions
+      At line 36 in file delay.s
+   Uses
+      At line 37 in file delay.s
+Comment: delayms used once
+loop_delay 0000000C
+
+Symbol: loop_delay
+   Definitions
+      At line 44 in file delay.s
+   Uses
+      At line 47 in file delay.s
+Comment: loop_delay used once
+3 symbols
+336 symbols in table

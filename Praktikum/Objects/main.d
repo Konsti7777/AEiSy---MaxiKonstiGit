@@ -1,0 +1,13 @@
+.\objects\main.o: main.c
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: .\System\stm32g474xx.h
+.\objects\main.o: .\CMSIS\core_cm4.h
+.\objects\main.o: .\CMSIS\cmsis_version.h
+.\objects\main.o: .\CMSIS\cmsis_compiler.h
+.\objects\main.o: .\CMSIS\cmsis_armcc.h
+.\objects\main.o: .\CMSIS\mpu_armv7.h
+.\objects\main.o: .\System\stm32g4xx.h
+.\objects\main.o: .\System\stm32g474xx.h
+.\objects\main.o: delay.h
