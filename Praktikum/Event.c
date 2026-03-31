@@ -73,7 +73,7 @@ void InitEventHandler(void)
 }
 
 
-void SetEvent(uint16_t event, uint16_t parameter, uint32_t parameter2)
+void SetEvent(uint16_t event, uint16_t parameter, unsigned long parameter2)
 {
 	
 	  /* check, if queue is not full */
@@ -116,7 +116,7 @@ EVENT_T GetEvent(void)
 		}
 		else
     {
-			 	retEvent.EventID = EVT_NOEVENT;
+		 		retEvent.EventID = EVT_NONE;
 				retEvent.EventParameter = 0;
 		}
 	  

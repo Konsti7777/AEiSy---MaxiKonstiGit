@@ -48,8 +48,8 @@
 
 // enum als Option
 // Define Event IDs
-#define  EVT_x 0u
-#define  EVT_y 1u
+#define EVT_NONE          0u
+#define EVT_TMR_500MS     1u
 
 
 /*  - T y p e s                                                          */
@@ -57,13 +57,13 @@
 typedef struct {
 	      uint16_t  EventID;
 	      uint16_t  EventParameter;
-	      uint32_t  EventParameter2;
+         unsigned long EventParameter2;
       } EVENT_T; 
 
 			
 typedef  struct {
       EVENT_T  Buffer[EVT_BUFFER_SIZE];
-      uint8_t  read; // zeigt auf das Feld mit dem ältesten Inhalt
+      uint8_t  read; // zeigt auf das Feld mit dem ï¿½ltesten Inhalt
       uint8_t  write; // zeigt immer auf leeres Feld
    } EVENT_QUEUE_T;
 
@@ -82,7 +82,7 @@ typedef  struct {
 
 /*  - P u b l i c  F u n c t i o n  P r o t o t y p e s                 */
 void    InitEventHandler(void);
-void    SetEvent(uint16_t event, uint16_t parameter, uint32_t parameter2);
+void    SetEvent(uint16_t event, uint16_t parameter, unsigned long parameter2);
 EVENT_T GetEvent(void);
 
 	

@@ -44,28 +44,58 @@
 
 #include "stm32g474xx.h"
 #include "delay.h"
+#include "Event.h"
+#include "Led.h"
 
 
 /* ----------- V A R I A B L E S   &  C O N S T A N T S  --------------- */
+
+extern unsigned long SystemCoreClock;
+
+volatile unsigned long g_systickMs = 0U;
 
 
 
 /* ------------- F u n c t i o n  P r o t o t y p e s  ----------------- */
 
+void SysTick_Handler(void);
+
 
 
 /* ----------------------- F U N C T I O N S  -------------------------- */
+
+void SysTick_Handler(void)
+{
+	g_systickMs++;
+
+	if ((g_systickMs % 500U) == 0U)
+	{
+		SetEvent(EVT_TMR_500MS, 0U, 0UL);
+	}
+}
 
 
 
 /* --------------  S t a r t    o f    p r o g r a m  -----------------  */
 
-int main(void)
-{
+int main(void){
+	EVENT_T currentEvent;
+
+	/* Initialize event queue and system clock value */
+	InitEventHandler();
+	Led_Init();
+	SystemCoreClockUpdate();
+
+	/* 1 ms SysTick interrupt */
+	SysTick_Config(SystemCoreClock / 1000U);
 
 	/* Endlosschleife */
 	while(1)
 	{
-		
+		/* Consumer: fetch next event from queue */
+		currentEvent = GetEvent();
+
+		/* Dispatch events to software modules */
+		Led_HandleEvent(&currentEvent);
 	}
 }
