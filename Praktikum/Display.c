@@ -1,6 +1,11 @@
 #include "Display.h"
 #include <stm32g4xx.h>
 
+#define LCD_DATA (*(volatile uint8_t*) 0x60000000)
+#define LCD_CMD_ADDR (*(volatile uint8_t*) 0x60000001)
+	
+	
+
 void DisplayInit(void){
 	//-------------RCC Register-------------
 	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOFEN;
@@ -30,7 +35,7 @@ void DisplayInit(void){
 	GPIOD->MODER &= ~GPIO_MODER_MODE1_Msk;
 	GPIOD->MODER |= (2<<(1*2));
 	GPIOD->AFR[0] &= ~GPIO_AFRL_AFRL1;
-	GPIOD->AFR[0] |= (12<<(0*4));
+	GPIOD->AFR[0] |= (12<<(1*4));
 
 	GPIOE->MODER &= ~GPIO_MODER_MODE7_Msk;
 	GPIOE->MODER |= (2<<(7*2));
@@ -54,18 +59,18 @@ void DisplayInit(void){
 
 	GPIOD->MODER &= ~GPIO_MODER_MODE4_Msk;
 	GPIOD->MODER |= (2<<(4*2));
-	GPIOD->AFR[0] &= ~GPIO_AFRL_AFRL3;
-	GPIOD->AFR[0] |= (12<<(3*4));	
-	
-	GPIOD->MODER &= ~GPIO_MODER_MODE5_Msk;
-	GPIOD->MODER |= (2<<(5*2));
 	GPIOD->AFR[0] &= ~GPIO_AFRL_AFRL4;
 	GPIOD->AFR[0] |= (12<<(4*4));	
 	
+	GPIOD->MODER &= ~GPIO_MODER_MODE5_Msk;
+	GPIOD->MODER |= (2<<(5*2));
+	GPIOD->AFR[0] &= ~GPIO_AFRL_AFRL5;
+	GPIOD->AFR[0] |= (12<<(5*4));	
+	
 	GPIOD->MODER &= ~GPIO_MODER_MODE7_Msk;
 	GPIOD->MODER |= (2<<(7*2));
-	GPIOD->AFR[0] &= ~GPIO_AFRL_AFRL6;
-	GPIOD->AFR[0] |= (12<<(6*4));	
+	GPIOD->AFR[0] &= ~GPIO_AFRL_AFRL7;
+	GPIOD->AFR[0] |= (12<<(7*4));	
 	
 	
 	
@@ -83,16 +88,27 @@ void DisplayInit(void){
 	FMC_Bank1_R->BTCR[0] = (1<<0) | (0<<2) | (0<<4) | (1<<12) | (1<<21);
 	FMC_Bank1_R->BTCR[1] = (3<<30) | (255<<8) | (15<<0);
 	
-	
-#define LCD_DADA_ADDR ((volatile uint8_t*) 0x60000000)
-#define LCD_CMD_ADDR ((volatile uint8_t*) 0x60000001)
-	
-	
+	LCD_Write_WORD(0x0000);
+	LCD_Write_CMD(0x40);
+
 	GPIOE->MODER &= ~GPIO_MODER_MODE11_Msk;
 	GPIOE->MODER |= (1<<22);
 }
 
-void LedHandler(EVENT_T currentEvent){
+void LCD_Write_CMD(uint8_t cmd){
+	LCD_DATA = cmd;
+}
+
+void LCD_Write_DATA(uint8_t data){
+	LCD_CMD_ADDR = data;
+}
+
+void LCD_Write_WORD(uint8_t data){
+	LCD_Write_DATA(data & 0xFF);
+	LCD_Write_DATA((data >> 8) & 0xFF);
+}
+
+void DisplayHandler(EVENT_T currentEvent){
 	
 			switch(currentEvent.EventID)
 			{ 

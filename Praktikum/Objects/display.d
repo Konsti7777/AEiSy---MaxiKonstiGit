@@ -1,0 +1,12 @@
+.\objects\display.o: Display.c
+.\objects\display.o: Display.h
+.\objects\display.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\display.o: Event.h
+.\objects\display.o: .\System\stm32g4xx.h
+.\objects\display.o: .\System\stm32g474xx.h
+.\objects\display.o: .\CMSIS\core_cm4.h
+.\objects\display.o: .\CMSIS\cmsis_version.h
+.\objects\display.o: .\CMSIS\cmsis_compiler.h
+.\objects\display.o: .\CMSIS\cmsis_armcc.h
+.\objects\display.o: .\CMSIS\mpu_armv7.h
+.\objects\display.o: .\System\stm32g4xx.h
