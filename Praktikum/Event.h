@@ -49,7 +49,8 @@
 // enum als Option
 // Define Event IDs
 #define  EVT_NOEVT 0u
-#define  EVT_LED_EVT 1u
+#define  EVT_500MS_EVT 1u
+#define	 EVT_INIT_EVT 2u
 
 
 /*  - T y p e s                                                          */

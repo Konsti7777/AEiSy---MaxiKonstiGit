@@ -45,7 +45,7 @@
 #include "stm32g474xx.h"
 #include "delay.h"
 #include "Event.h"
-
+#include "LED.h"
 
 
 /* ----------- V A R I A B L E S   &  C O N S T A N T S  --------------- */
@@ -65,7 +65,7 @@ void SysTick_Handler(){
 	
 	systickms++;
 	if((systickms % 500) == 0){
-		SetEvent(EVT_LED_EVT, 0U, 0UL);
+		SetEvent(EVT_500MS_EVT, 0U, 0UL);
 	}
 	
 	}
@@ -77,11 +77,7 @@ void SysTick_Handler(){
 
 int main(void) {
   EVENT_T currentEvent;
-	
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOEEN;
-	
-	GPIOE->MODER &= ~GPIO_MODER_MODE11_Msk;
-	GPIOE->MODER |= (1<<22);
+	SetEvent(EVT_INIT_EVT,0,0);
 	InitEventHandler();
 	SysTick_Config(SystemCoreClock / 500);
 	
@@ -89,17 +85,10 @@ int main(void) {
 	while(1)
 	{
 		currentEvent = GetEvent();
-		switch(currentEvent.EventID)
-			{ 
-			case EVT_LED_EVT:
-				GPIOE->ODR ^=GPIO_ODR_OD11;
-			case EVT_NOEVT:
-				break;
-				default:
-						break;		
+		LedHandler(currentEvent);
 		}
 		
 		//delayms(500);
 
-	}
 }
+

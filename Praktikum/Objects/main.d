@@ -12,3 +12,4 @@
 .\objects\main.o: .\System\stm32g474xx.h
 .\objects\main.o: delay.h
 .\objects\main.o: Event.h
+.\objects\main.o: LED.h
