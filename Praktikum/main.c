@@ -43,29 +43,43 @@
 //#include <float.h>        // FLT_MAX, DBL_MIN, ...
 
 #include "stm32g474xx.h"
-#include "delay.h"
-
-
+#include "Event.h"
+#include "led.h"
 /* ----------- V A R I A B L E S   &  C O N S T A N T S  --------------- */
 
-
+extern unsigned long SystemCoreClock;
+volatile unsigned long systickms;
 
 /* ------------- F u n c t i o n  P r o t o t y p e s  ----------------- */
 
-
-
 /* ----------------------- F U N C T I O N S  -------------------------- */
 
+void SysTick_Handler(void)
+{
+    static uint32_t cnt = 0;
 
+    cnt++;
 
-/* --------------  S t a r t    o f    p r o g r a m  -----------------  */
+    if (cnt >= 5) // da alle 100ms ein Interrupt kommt, --> alle halbe sekunde umschalten
+    {
+        cnt = 0;
+        SetEvent(EVT_LED, 0U, 0UL);
+    }
+}
 
 int main(void)
 {
+    EVENT_T curEvent;
 
-	/* Endlosschleife */
-	while(1)
-	{
-		
-	}
+    EventInit();
+
+    SysTick_Config(SystemCoreClock / 10U);
+
+    SetEvent(EVT_INIT, 0U, 0UL);
+
+    while (1)
+    {
+        curEvent = GetEvent();
+        LED_Handler(curEvent);
+    }
 }
