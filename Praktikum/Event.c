@@ -116,7 +116,7 @@ EVENT_T GetEvent(void)
 		}
 		else
     {
-			 	retEvent.EventID = EVT_NOEVENT;
+			 	retEvent.EventID = EVT_NOEVT;
 				retEvent.EventParameter = 0;
 		}
 	  

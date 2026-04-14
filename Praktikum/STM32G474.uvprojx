@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>STM32G474VETx</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <PackID>Keil.STM32G4xx_DFP.2.0.0</PackID>
+          <PackID>Keil.STM32G4xx_DFP.2.1.0</PackID>
           <PackURL>https://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x08000000,0x00080000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -397,6 +397,26 @@
               <FileName>delay.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\delay.h</FilePath>
+            </File>
+            <File>
+              <FileName>Event.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Event.c</FilePath>
+            </File>
+            <File>
+              <FileName>Event.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Event.h</FilePath>
+            </File>
+            <File>
+              <FileName>LED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LED.c</FilePath>
+            </File>
+            <File>
+              <FileName>LED.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\LED.h</FilePath>
             </File>
           </Files>
         </Group>

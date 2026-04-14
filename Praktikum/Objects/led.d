@@ -1,0 +1,12 @@
+.\objects\led.o: LED.c
+.\objects\led.o: LED.h
+.\objects\led.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\led.o: Event.h
+.\objects\led.o: .\System\stm32g4xx.h
+.\objects\led.o: .\System\stm32g474xx.h
+.\objects\led.o: .\CMSIS\core_cm4.h
+.\objects\led.o: .\CMSIS\cmsis_version.h
+.\objects\led.o: .\CMSIS\cmsis_compiler.h
+.\objects\led.o: .\CMSIS\cmsis_armcc.h
+.\objects\led.o: .\CMSIS\mpu_armv7.h
+.\objects\led.o: .\System\stm32g4xx.h

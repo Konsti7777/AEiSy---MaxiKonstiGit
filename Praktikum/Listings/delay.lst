@@ -96,10 +96,10 @@ ARM Macro Assembler    Page 2
    54 0000001A                 ENDFUNC                      ; end of function
    55 0000001A                 END
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4 --apcs=interw
-ork --depend=.\objects\delay.d -o.\objects\delay.o -IC:\Users\mar9750m\AppData\
-Local\Arm\Packs\Keil\STM32G4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32G4xx\Incl
-ude --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 536" --pred
-efine="STM32G474xx SETA 1" --list=.\listings\delay.lst delay.s
+ork --depend=.\objects\delay.d -o.\objects\delay.o -IC:\Keil_v5\Keil\STM32G4xx_
+DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include --predefine="__EVAL SETA 1"
+ --predefine="__UVISION_VERSION SETA 536" --predefine="STM32G474xx SETA 1" --li
+st=.\listings\delay.lst delay.s
 
 
 

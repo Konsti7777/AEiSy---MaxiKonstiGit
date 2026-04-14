@@ -44,9 +44,14 @@
 
 #include "stm32g474xx.h"
 #include "delay.h"
+#include "Event.h"
+#include "LED.h"
 
 
 /* ----------- V A R I A B L E S   &  C O N S T A N T S  --------------- */
+
+extern unsigned long SystemCoreClock;
+volatile unsigned long systickms;
 
 
 
@@ -56,16 +61,34 @@
 
 /* ----------------------- F U N C T I O N S  -------------------------- */
 
-
+void SysTick_Handler(){
+	
+	systickms++;
+	if((systickms % 500) == 0){
+		SetEvent(EVT_500MS_EVT, 0U, 0UL);
+	}
+	
+	}
 
 /* --------------  S t a r t    o f    p r o g r a m  -----------------  */
 
-int main(void)
-{
 
+
+
+int main(void) {
+  EVENT_T currentEvent;
+	SetEvent(EVT_INIT_EVT,0,0);
+	InitEventHandler();
+	SysTick_Config(SystemCoreClock / 500);
+	
 	/* Endlosschleife */
 	while(1)
 	{
+		currentEvent = GetEvent();
+		LedHandler(currentEvent);
+		}
 		
-	}
+		//delayms(500);
+
 }
+
