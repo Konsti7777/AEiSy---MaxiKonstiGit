@@ -14,7 +14,7 @@ I (.\System\stm32g4xx.h)(0x69CBC607)
 I (delay.h)(0x69CBC607)
 I (Event.h)(0x69DE3907)
 I (LED.h)(0x69DE3622)
-I (Display.h)(0x69DE5737)
+I (Display.h)(0x69E77991)
 F (.\delay.s)(0x69CBC607)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include--pd "__UVISION_VERSION SETA 536" --pd "STM32G474xx SETA 1"--list .\listings\delay.lst --xref -o .\objects\delay.o --depend .\objects\delay.d)
 F (.\delay.h)(0x69CBC607)()
 F (.\Event.c)(0x69CBE17A)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\event.o --omf_browse .\objects\event.crf --depend .\objects\event.d)
@@ -33,8 +33,8 @@ I (.\CMSIS\cmsis_compiler.h)(0x69CBC607)
 I (.\CMSIS\cmsis_armcc.h)(0x69CBC607)
 I (.\CMSIS\mpu_armv7.h)(0x69CBC607)
 F (.\LED.h)(0x69DE3622)()
-F (.\Display.c)(0x69E77524)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\display.o --omf_browse .\objects\display.crf --depend .\objects\display.d)
-I (Display.h)(0x69DE5737)
+F (.\Display.c)(0x69E77CFB)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\display.o --omf_browse .\objects\display.crf --depend .\objects\display.d)
+I (Display.h)(0x69E77991)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
 I (Event.h)(0x69DE3907)
 I (.\System\stm32g4xx.h)(0x69CBC607)
@@ -44,7 +44,7 @@ I (.\CMSIS\cmsis_version.h)(0x69CBC607)
 I (.\CMSIS\cmsis_compiler.h)(0x69CBC607)
 I (.\CMSIS\cmsis_armcc.h)(0x69CBC607)
 I (.\CMSIS\mpu_armv7.h)(0x69CBC607)
-F (.\Display.h)(0x69DE5737)()
+F (.\Display.h)(0x69E77991)()
 F (.\System\stm32g4xx.h)(0x69CBC607)()
 F (.\System\STM32G4xx_REG_ASM.inc)(0x69CBC607)()
 F (.\System\stm32g474xx.h)(0x69CBC607)()

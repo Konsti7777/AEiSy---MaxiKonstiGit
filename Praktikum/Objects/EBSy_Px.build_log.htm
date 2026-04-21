@@ -46,10 +46,12 @@ Display.c(73): warning:  #68-D: integer conversion resulted in a change of sign
   	GPIOD->AFR[0] |= (12<<(7*4));	
 Display.c(82): warning:  #61-D: integer operation result is out of range
   	FMC_Bank1_R->BTCR[1] = (3<<30) | (255<<8) | (15<<0);
-Display.c: 9 warnings, 0 errors
+Display.c(100): warning:  #177-D: function "readStatus"  was declared but never referenced
+  static uint8_t readStatus(void){
+Display.c: 10 warnings, 0 errors
 linking...
-Program Size: Code=1548 RO-data=504 RW-data=8 ZI-data=2440  
-".\Objects\EBSy_Px.axf" - 0 Error(s), 9 Warning(s).
+Program Size: Code=1592 RO-data=504 RW-data=8 ZI-data=2440  
+".\Objects\EBSy_Px.axf" - 0 Error(s), 10 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -61,7 +63,7 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

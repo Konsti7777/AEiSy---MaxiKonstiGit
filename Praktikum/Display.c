@@ -1,7 +1,7 @@
 #include "Display.h"
 #include <stm32g4xx.h>
 
-#define LCD_DATA (*(volatile uint8_t*) 0x60000000)
+#define LCD_DATA_ADDR (*(volatile uint8_t*) 0x60000000)
 #define LCD_CMD_ADDR (*(volatile uint8_t*) 0x60000001)
 	
 	
@@ -83,15 +83,22 @@ void DisplayInit(void){
 	
 	
 	
-	LCD_Write_WORD(0x0000);
-	LCD_Write_CMD(0x40);
+	Set_Text_Init();
+	Set_Graphic_Init();
+	
+	LCD_Write_CMD(0x81);	//EXOR Mode
+	LCD_Write_CMD(0x9C);	//Display Mode: Text on, graphic on
 
 //	GPIOE->MODER &= ~GPIO_MODER_MODE11_Msk; //TODO
 //	GPIOE->MODER |= (1<<22);
 }
 
 void LCD_Write_CMD(uint8_t cmd){
-	LCD_DATA = cmd;
+	LCD_DATA_ADDR = cmd;
+}
+
+static uint8_t readStatus(void){
+	return LCD_CMD_ADDR;
 }
 
 void LCD_Write_DATA(uint8_t data){
@@ -101,6 +108,22 @@ void LCD_Write_DATA(uint8_t data){
 void LCD_Write_WORD(uint8_t data){
 	LCD_Write_DATA(data & 0xFF);
 	LCD_Write_DATA((data >> 8) & 0xFF);
+}
+
+void Set_Text_Init(void){
+	LCD_Write_DATA(0x0000);
+	LCD_Write_CMD(0x40);
+	
+	LCD_Write_DATA(30);
+	LCD_Write_CMD(0x41);
+}
+
+void Set_Graphic_Init(void){
+	LCD_Write_DATA(0x0000);
+	LCD_Write_CMD(0x42);
+	
+	LCD_Write_DATA(30);
+	LCD_Write_CMD(0x43);
 }
 
 void DisplayHandler(EVENT_T currentEvent){
