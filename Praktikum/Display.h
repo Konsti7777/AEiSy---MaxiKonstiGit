@@ -11,4 +11,8 @@
 			void Set_Text_Init(void);
 			void Set_Graphic_Init(void);
 			static uint8_t readStatus(void);
+			void LCD_PutString(const char *s);
+			void LCD_PutChar(char c);
+			void LCD_ClearText(void);
+			void LCD_SetCursor(uint8_t x, uint8_t y);
 #endif  // _DISPLAY_H

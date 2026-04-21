@@ -89,8 +89,14 @@ void DisplayInit(void){
 	
 	LCD_Write_CMD(0x81);	//EXOR Mode
 	LCD_Write_CMD(0x9C);	//Display Mode: Text on, graphic on
-	
+	//LCD_Write_CMD(0x94);//Display Mode: Text on, graphic off
+	//LCD_Write_CMD(0x98);//Display Mode: Text off, graphic on
 
+	LCD_ClearText();
+	LCD_SetCursor(0,0);
+	LCD_PutString("Hallo Welt!");
+	LCD_SetCursor(4,4);
+	LCD_PutChar('c');
 //	GPIOE->MODER &= ~GPIO_MODER_MODE11_Msk; //TODO
 //	GPIOE->MODER |= (1<<22);
 }
@@ -127,11 +133,40 @@ void Set_Text_Init(void){
 }
 
 void Set_Graphic_Init(void){
-	LCD_Write_WORD(0x0000);
+	LCD_Write_WORD(0x0200);
 	LCD_Write_CMD(0x42);
 	
 	LCD_Write_WORD(30);
 	LCD_Write_CMD(0x43);
+}
+
+void LCD_PutChar(char c){
+    LCD_Write_DATA((uint8_t)c - 0x20);
+		LCD_Write_CMD(0xC0); 		//Write Data & Increase adp
+}
+
+void LCD_PutString(const char *s){
+    while(*s){
+        LCD_PutChar(*s++);
+    }
+}
+
+void LCD_SetCursor(uint8_t x, uint8_t y){
+    uint16_t addr = y * 30 + x;   
+    
+    LCD_Write_DATA(addr & 0xFF);
+    LCD_Write_DATA((addr >> 8) & 0xFF);
+    LCD_Write_CMD(0x24);  // Address Pointer setzen 
+}
+
+void LCD_ClearText(void){
+    LCD_SetCursor(0, 0);
+
+    for(int i = 0; i < 30 * 16; i++){   // 30 Spalten × 16 Zeilen (anpassen!)
+        LCD_Write_DATA(0x00);			
+				LCD_Write_CMD(0xC0);	 		//Write Data & Increase adp
+				
+    }
 }
 
 void DisplayHandler(EVENT_T currentEvent){
