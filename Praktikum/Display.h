@@ -15,4 +15,9 @@
 			void LCD_PutChar(char c);
 			void LCD_ClearText(void);
 			void LCD_SetCursor(uint8_t x, uint8_t y);
+			void LCD_SetPixel(uint8_t x, uint8_t y);
+			void LCD_DrawHLine(uint8_t x1, uint8_t x2, uint8_t y);
+			void LCD_DrawVLine(uint8_t x, uint8_t y1, uint8_t y2);
+			void LCD_DrawRect(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2);
+			void LCD_DrawBitmap(const uint8_t *picture);
 #endif  // _DISPLAY_H
