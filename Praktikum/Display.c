@@ -86,15 +86,17 @@ void DisplayInit(void){
 	Set_Text_Init();
 	Set_Graphic_Init();
 	
+	
 	LCD_Write_CMD(0x81);	//EXOR Mode
 	LCD_Write_CMD(0x9C);	//Display Mode: Text on, graphic on
+	
 
 //	GPIOE->MODER &= ~GPIO_MODER_MODE11_Msk; //TODO
 //	GPIOE->MODER |= (1<<22);
 }
 
 void LCD_Write_CMD(uint8_t cmd){
-	LCD_DATA_ADDR = cmd;
+	LCD_CMD_ADDR = cmd;
 }
 
 static uint8_t readStatus(void){
@@ -102,7 +104,7 @@ static uint8_t readStatus(void){
 }
 
 void LCD_Write_DATA(uint8_t data){
-	LCD_CMD_ADDR = data;
+	LCD_DATA_ADDR = data;
 }
 
 void LCD_Write_WORD(uint8_t data){
@@ -111,18 +113,18 @@ void LCD_Write_WORD(uint8_t data){
 }
 
 void Set_Text_Init(void){
-	LCD_Write_DATA(0x0000);
+	LCD_Write_WORD(0x0000);
 	LCD_Write_CMD(0x40);
 	
-	LCD_Write_DATA(30);
+	LCD_Write_WORD(30);
 	LCD_Write_CMD(0x41);
 }
 
 void Set_Graphic_Init(void){
-	LCD_Write_DATA(0x0000);
+	LCD_Write_WORD(0x0000);
 	LCD_Write_CMD(0x42);
 	
-	LCD_Write_DATA(30);
+	LCD_Write_WORD(30);
 	LCD_Write_CMD(0x43);
 }
 
@@ -132,6 +134,7 @@ void DisplayHandler(EVENT_T currentEvent){
 			{ 
 			case EVT_INIT_EVT:
 				DisplayInit();
+				break;
 			case EVT_NOEVT:
 				break;
 				default:
