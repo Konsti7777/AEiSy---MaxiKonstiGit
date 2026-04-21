@@ -95,7 +95,12 @@ void DisplayInit(void){
 //	GPIOE->MODER |= (1<<22);
 }
 
+static void Wait_Ready(void){
+	while((readStatus() & 0x03) != 0x03){}
+	}
+
 void LCD_Write_CMD(uint8_t cmd){
+	Wait_Ready();
 	LCD_CMD_ADDR = cmd;
 }
 
@@ -104,10 +109,11 @@ static uint8_t readStatus(void){
 }
 
 void LCD_Write_DATA(uint8_t data){
+	Wait_Ready();
 	LCD_DATA_ADDR = data;
 }
 
-void LCD_Write_WORD(uint8_t data){
+void LCD_Write_WORD(uint16_t data){
 	LCD_Write_DATA(data & 0xFF);
 	LCD_Write_DATA((data >> 8) & 0xFF);
 }

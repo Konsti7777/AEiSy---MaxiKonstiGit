@@ -7,7 +7,8 @@
 		 
 		 void DisplayHandler(EVENT_T currentEvent);
 			void LCD_Write_CMD(uint8_t cmd);
-			void LCD_Write_WORD(uint8_t word);
+			void LCD_Write_WORD(uint16_t word);
 			void Set_Text_Init(void);
 			void Set_Graphic_Init(void);
+			static uint8_t readStatus(void);
 #endif  // _DISPLAY_H
