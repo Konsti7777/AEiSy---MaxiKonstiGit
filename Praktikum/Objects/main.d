@@ -13,3 +13,4 @@
 .\objects\main.o: delay.h
 .\objects\main.o: Event.h
 .\objects\main.o: LED.h
+.\objects\main.o: Display.h

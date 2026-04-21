@@ -71,28 +71,23 @@ void DisplayInit(void){
 	GPIOD->MODER |= (2<<(7*2));
 	GPIOD->AFR[0] &= ~GPIO_AFRL_AFRL7;
 	GPIOD->AFR[0] |= (12<<(7*4));	
-	
-	
-	
-	GPIOD->MODER &= ~GPIO_MODER_MODE1_Msk;
-	GPIOD->MODER |= (2<<(1*2));
-	GPIOD->AFR[0] &= ~GPIO_AFRH_AFRH1;
-	GPIOD->AFR[0] |= (12<<(1*4));
 
-	
+
 	//---------Clock anmachen---------------
 	RCC->AHB3ENR |= RCC_AHB3ENR_FMCEN;
 	
 	//---------Steuerregister----------------
 	
-	FMC_Bank1_R->BTCR[0] = (1<<0) | (0<<2) | (0<<4) | (1<<12) | (1<<21);
+	FMC_Bank1_R->BTCR[0] = (1<<0) | (0<<2) | (0<<3) | (0<<4) | (0<<5) | (1<<12) | (1<<21);
 	FMC_Bank1_R->BTCR[1] = (3<<30) | (255<<8) | (15<<0);
+	
+	
 	
 	LCD_Write_WORD(0x0000);
 	LCD_Write_CMD(0x40);
 
-	GPIOE->MODER &= ~GPIO_MODER_MODE11_Msk;
-	GPIOE->MODER |= (1<<22);
+//	GPIOE->MODER &= ~GPIO_MODER_MODE11_Msk; //TODO
+//	GPIOE->MODER |= (1<<22);
 }
 
 void LCD_Write_CMD(uint8_t cmd){

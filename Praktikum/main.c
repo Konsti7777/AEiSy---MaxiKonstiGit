@@ -46,6 +46,7 @@
 #include "delay.h"
 #include "Event.h"
 #include "LED.h"
+#include "Display.h"
 
 
 /* ----------- V A R I A B L E S   &  C O N S T A N T S  --------------- */
@@ -65,7 +66,7 @@ void SysTick_Handler(){
 	
 	systickms++;
 	if((systickms % 500) == 0){
-		SetEvent(EVT_500MS_EVT, 0U, 0UL);
+		//SetEvent(EVT_500MS_EVT, 0U, 0UL);
 	}
 	
 	}
@@ -76,16 +77,16 @@ void SysTick_Handler(){
 
 
 int main(void) {
-  EVENT_T currentEvent;
-	SetEvent(EVT_INIT_EVT,0,0);
 	InitEventHandler();
+  EVENT_T currentEvent;
 	SysTick_Config(SystemCoreClock / 500);
-	
+	SetEvent(EVT_INIT_EVT,0,0);
 	/* Endlosschleife */
 	while(1)
 	{
 		currentEvent = GetEvent();
-		LedHandler(currentEvent);
+		//LedHandler(currentEvent);
+		DisplayHandler(currentEvent);
 		}
 		
 		//delayms(500);
