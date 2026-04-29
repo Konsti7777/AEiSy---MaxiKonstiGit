@@ -293,6 +293,12 @@ void LCD_SetCursor(uint8_t x, uint8_t y){
     LCD_Write_CMD(0x24);  // Address Pointer setzen 
 }
 
+void LCD_SetGraphicAddress(uint8_t x, uint8_t y){
+	uint16_t graphAddr =(0x200 + y) * 30 + x/8;
+	LCD_Write_WORD(graphAddr);
+	LCD_Write_CMD(0x24);
+}
+
 void LCD_ClearText(void){
     LCD_SetCursor(0, 0);
 
@@ -304,9 +310,10 @@ void LCD_ClearText(void){
 }
 
 void LCD_SetPixel(uint8_t x, uint8_t y){
-		LCD_SetCursor(x, y);
-		LCD_Write_DATA(0x10);
-    LCD_Write_CMD(0xC0); // Bit setzen 
+		LCD_SetGraphicAddress(x,y);
+		LCD_Write_DATA(0xFF);
+    //LCD_Write_CMD(0xC0); // Bit setzen 
+		LCD_Write_CMD(0xF8 | (7 - (8 % x)));
 }
 
 void LCD_DrawHLine(uint8_t x1, uint8_t x2, uint8_t y){

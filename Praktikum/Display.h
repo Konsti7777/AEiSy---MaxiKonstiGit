@@ -20,4 +20,5 @@
 			void LCD_DrawVLine(uint8_t x, uint8_t y1, uint8_t y2);
 			void LCD_DrawRect(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2);
 			void LCD_DrawBitmap(const uint8_t *picture);
+			void LCD_SetGraphicAddress(uint8_t x, uint8_t y);
 #endif  // _DISPLAY_H
