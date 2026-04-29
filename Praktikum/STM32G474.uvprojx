@@ -428,6 +428,16 @@
               <FileType>5</FileType>
               <FilePath>.\Display.h</FilePath>
             </File>
+            <File>
+              <FileName>Sonic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sonic.c</FilePath>
+            </File>
+            <File>
+              <FileName>Sonic.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Sonic.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

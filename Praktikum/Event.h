@@ -51,6 +51,8 @@
 #define  EVT_NOEVT 0u
 #define  EVT_500MS_EVT 1u
 #define	 EVT_INIT_EVT 2u
+#define	 EVT_SONIC_EVT 3u
+
 
 
 /*  - T y p e s                                                          */
@@ -64,7 +66,7 @@ typedef struct {
 			
 typedef  struct {
       EVENT_T  Buffer[EVT_BUFFER_SIZE];
-      uint8_t  read; // zeigt auf das Feld mit dem ältesten Inhalt
+      uint8_t  read; // zeigt auf das Feld mit dem ï¿½ltesten Inhalt
       uint8_t  write; // zeigt immer auf leeres Feld
    } EVENT_QUEUE_T;
 

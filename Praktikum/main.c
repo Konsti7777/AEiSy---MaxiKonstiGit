@@ -66,8 +66,12 @@ void SysTick_Handler(){
 	
 	systickms++;
 	if((systickms % 500) == 0){
-		//SetEvent(EVT_500MS_EVT, 0U, 0UL);
-	}
+		SetEvent(EVT_500MS_EVT, 0U, 0UL);
+	}	
+	if ((systickms % 50) == 0)
+    {
+        SetEvent(EVT_SONIC_EVT, 0U, 0UL);
+    }
 	
 	}
 
@@ -88,6 +92,7 @@ int main(void) {
 		//LedHandler(currentEvent);
 		DisplayHandler(currentEvent);
 		}
+		SonicHandler(currentEvent);
 		
 		//delayms(500);
 
