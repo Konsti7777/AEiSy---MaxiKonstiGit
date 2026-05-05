@@ -386,6 +386,9 @@ void DisplayHandler(EVENT_T currentEvent){
 			case EVT_DISPLAY_SONIC_EVT:
 				DisplaySonicDistance();
 				break;
+			case EVT_SONIC_READY_EVT:
+				DisplaySonicDistance(); // Sofort anzeigen wenn neue Messung kommt
+				break;
 				default:
 						break;		
 		}
