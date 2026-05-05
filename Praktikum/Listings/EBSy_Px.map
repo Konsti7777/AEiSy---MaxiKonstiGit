@@ -32,7 +32,6 @@ Section Cross References
     display.o(i.DisplaySonicDistance) refers to display.o(i.LCD_SetCursor) for LCD_SetCursor
     display.o(i.DisplaySonicDistance) refers to noretval__2snprintf.o(.text) for __2snprintf
     display.o(i.DisplaySonicDistance) refers to display.o(i.LCD_PutString) for LCD_PutString
-    display.o(i.DisplaySonicDistance) refers to display.o(i.LCD_PutChar) for LCD_PutChar
     display.o(i.LCD_Clear) refers to display.o(i.LCD_Write_WORD) for LCD_Write_WORD
     display.o(i.LCD_Clear) refers to display.o(i.LCD_Write_CMD) for LCD_Write_CMD
     display.o(i.LCD_Clear) refers to display.o(i.LCD_Write_DATA) for LCD_Write_DATA
@@ -402,34 +401,34 @@ Image Symbol Table
     i.DisplayHandler                         0x08000562   Section        0  display.o(i.DisplayHandler)
     i.DisplayInit                            0x08000588   Section        0  display.o(i.DisplayInit)
     i.DisplaySonicDistance                   0x0800082c   Section        0  display.o(i.DisplaySonicDistance)
-    i.GetEvent                               0x08000878   Section        0  event.o(i.GetEvent)
-    i.InitEventHandler                       0x080008f0   Section        0  event.o(i.InitEventHandler)
-    i.LCD_Clear                              0x08000904   Section        0  display.o(i.LCD_Clear)
-    i.LCD_ClearText                          0x08000938   Section        0  display.o(i.LCD_ClearText)
-    i.LCD_PutChar                            0x0800095c   Section        0  display.o(i.LCD_PutChar)
-    i.LCD_PutString                          0x08000972   Section        0  display.o(i.LCD_PutString)
-    i.LCD_SetCursor                          0x08000988   Section        0  display.o(i.LCD_SetCursor)
-    i.LCD_Write_CMD                          0x080009aa   Section        0  display.o(i.LCD_Write_CMD)
-    i.LCD_Write_DATA                         0x080009ba   Section        0  display.o(i.LCD_Write_DATA)
-    i.LCD_Write_WORD                         0x080009ca   Section        0  display.o(i.LCD_Write_WORD)
-    i.SetEvent                               0x080009dc   Section        0  event.o(i.SetEvent)
-    i.Set_Graphic_Init                       0x08000a4c   Section        0  display.o(i.Set_Graphic_Init)
-    i.Set_Text_Init                          0x08000a6a   Section        0  display.o(i.Set_Text_Init)
-    i.SonicGetDistance                       0x08000a88   Section        0  sonic.o(i.SonicGetDistance)
-    i.SonicHandler                           0x08000a94   Section        0  sonic.o(i.SonicHandler)
-    i.SonicInit                              0x08000ac0   Section        0  sonic.o(i.SonicInit)
-    i.SonicReadMiddle                        0x08000ae4   Section        0  sonic.o(i.SonicReadMiddle)
-    i.SonicSetInput                          0x08000b50   Section        0  sonic.o(i.SonicSetInput)
-    SonicSetInput                            0x08000b51   Thumb Code    14  sonic.o(i.SonicSetInput)
-    i.SonicSetOutput                         0x08000b64   Section        0  sonic.o(i.SonicSetOutput)
-    SonicSetOutput                           0x08000b65   Thumb Code    24  sonic.o(i.SonicSetOutput)
-    i.SysTick_Handler                        0x08000b80   Section        0  main.o(i.SysTick_Handler)
-    i.SystemInit                             0x08000be4   Section        0  system_stm32g4xx.o(i.SystemInit)
-    i.Wait_Ready                             0x08000c50   Section        0  display.o(i.Wait_Ready)
-    Wait_Ready                               0x08000c51   Thumb Code    18  display.o(i.Wait_Ready)
-    i.main                                   0x08000c64   Section        0  main.o(i.main)
-    i.readStatus                             0x08000cf0   Section        0  display.o(i.readStatus)
-    readStatus                               0x08000cf1   Thumb Code     8  display.o(i.readStatus)
+    i.GetEvent                               0x08000858   Section        0  event.o(i.GetEvent)
+    i.InitEventHandler                       0x080008d0   Section        0  event.o(i.InitEventHandler)
+    i.LCD_Clear                              0x080008e4   Section        0  display.o(i.LCD_Clear)
+    i.LCD_ClearText                          0x08000918   Section        0  display.o(i.LCD_ClearText)
+    i.LCD_PutChar                            0x0800093c   Section        0  display.o(i.LCD_PutChar)
+    i.LCD_PutString                          0x08000952   Section        0  display.o(i.LCD_PutString)
+    i.LCD_SetCursor                          0x08000968   Section        0  display.o(i.LCD_SetCursor)
+    i.LCD_Write_CMD                          0x0800098a   Section        0  display.o(i.LCD_Write_CMD)
+    i.LCD_Write_DATA                         0x0800099a   Section        0  display.o(i.LCD_Write_DATA)
+    i.LCD_Write_WORD                         0x080009aa   Section        0  display.o(i.LCD_Write_WORD)
+    i.SetEvent                               0x080009bc   Section        0  event.o(i.SetEvent)
+    i.Set_Graphic_Init                       0x08000a2c   Section        0  display.o(i.Set_Graphic_Init)
+    i.Set_Text_Init                          0x08000a4a   Section        0  display.o(i.Set_Text_Init)
+    i.SonicGetDistance                       0x08000a68   Section        0  sonic.o(i.SonicGetDistance)
+    i.SonicHandler                           0x08000a74   Section        0  sonic.o(i.SonicHandler)
+    i.SonicInit                              0x08000aa0   Section        0  sonic.o(i.SonicInit)
+    i.SonicReadMiddle                        0x08000ac4   Section        0  sonic.o(i.SonicReadMiddle)
+    i.SonicSetInput                          0x08000b30   Section        0  sonic.o(i.SonicSetInput)
+    SonicSetInput                            0x08000b31   Thumb Code    14  sonic.o(i.SonicSetInput)
+    i.SonicSetOutput                         0x08000b44   Section        0  sonic.o(i.SonicSetOutput)
+    SonicSetOutput                           0x08000b45   Thumb Code    24  sonic.o(i.SonicSetOutput)
+    i.SysTick_Handler                        0x08000b60   Section        0  main.o(i.SysTick_Handler)
+    i.SystemInit                             0x08000bb8   Section        0  system_stm32g4xx.o(i.SystemInit)
+    i.Wait_Ready                             0x08000c24   Section        0  display.o(i.Wait_Ready)
+    Wait_Ready                               0x08000c25   Thumb Code    18  display.o(i.Wait_Ready)
+    i.main                                   0x08000c38   Section        0  main.o(i.main)
+    i.readStatus                             0x08000cc4   Section        0  display.o(i.readStatus)
+    readStatus                               0x08000cc5   Thumb Code     8  display.o(i.readStatus)
     .data                                    0x20000000   Section        4  main.o(.data)
     .data                                    0x20000004   Section        2  sonic.o(.data)
     lastDistance                             0x20000004   Data           2  sonic.o(.data)
@@ -669,29 +668,29 @@ Image Symbol Table
     delayms                                  0x08000549   Thumb Code    26  delay.o(DELAY)
     DisplayHandler                           0x08000563   Thumb Code    38  display.o(i.DisplayHandler)
     DisplayInit                              0x08000589   Thumb Code   638  display.o(i.DisplayInit)
-    DisplaySonicDistance                     0x0800082d   Thumb Code    66  display.o(i.DisplaySonicDistance)
-    GetEvent                                 0x08000879   Thumb Code   114  event.o(i.GetEvent)
-    InitEventHandler                         0x080008f1   Thumb Code    14  event.o(i.InitEventHandler)
-    LCD_Clear                                0x08000905   Thumb Code    52  display.o(i.LCD_Clear)
-    LCD_ClearText                            0x08000939   Thumb Code    36  display.o(i.LCD_ClearText)
-    LCD_PutChar                              0x0800095d   Thumb Code    22  display.o(i.LCD_PutChar)
-    LCD_PutString                            0x08000973   Thumb Code    22  display.o(i.LCD_PutString)
-    LCD_SetCursor                            0x08000989   Thumb Code    34  display.o(i.LCD_SetCursor)
-    LCD_Write_CMD                            0x080009ab   Thumb Code    16  display.o(i.LCD_Write_CMD)
-    LCD_Write_DATA                           0x080009bb   Thumb Code    16  display.o(i.LCD_Write_DATA)
-    LCD_Write_WORD                           0x080009cb   Thumb Code    18  display.o(i.LCD_Write_WORD)
-    SetEvent                                 0x080009dd   Thumb Code   106  event.o(i.SetEvent)
-    Set_Graphic_Init                         0x08000a4d   Thumb Code    30  display.o(i.Set_Graphic_Init)
-    Set_Text_Init                            0x08000a6b   Thumb Code    28  display.o(i.Set_Text_Init)
-    SonicGetDistance                         0x08000a89   Thumb Code     6  sonic.o(i.SonicGetDistance)
-    SonicHandler                             0x08000a95   Thumb Code    38  sonic.o(i.SonicHandler)
-    SonicInit                                0x08000ac1   Thumb Code    26  sonic.o(i.SonicInit)
-    SonicReadMiddle                          0x08000ae5   Thumb Code   104  sonic.o(i.SonicReadMiddle)
-    SysTick_Handler                          0x08000b81   Thumb Code    96  main.o(i.SysTick_Handler)
-    SystemInit                               0x08000be5   Thumb Code   100  system_stm32g4xx.o(i.SystemInit)
-    main                                     0x08000c65   Thumb Code   128  main.o(i.main)
-    Region$$Table$$Base                      0x08000cf8   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08000d18   Number         0  anon$$obj.o(Region$$Table)
+    DisplaySonicDistance                     0x0800082d   Thumb Code    36  display.o(i.DisplaySonicDistance)
+    GetEvent                                 0x08000859   Thumb Code   114  event.o(i.GetEvent)
+    InitEventHandler                         0x080008d1   Thumb Code    14  event.o(i.InitEventHandler)
+    LCD_Clear                                0x080008e5   Thumb Code    52  display.o(i.LCD_Clear)
+    LCD_ClearText                            0x08000919   Thumb Code    36  display.o(i.LCD_ClearText)
+    LCD_PutChar                              0x0800093d   Thumb Code    22  display.o(i.LCD_PutChar)
+    LCD_PutString                            0x08000953   Thumb Code    22  display.o(i.LCD_PutString)
+    LCD_SetCursor                            0x08000969   Thumb Code    34  display.o(i.LCD_SetCursor)
+    LCD_Write_CMD                            0x0800098b   Thumb Code    16  display.o(i.LCD_Write_CMD)
+    LCD_Write_DATA                           0x0800099b   Thumb Code    16  display.o(i.LCD_Write_DATA)
+    LCD_Write_WORD                           0x080009ab   Thumb Code    18  display.o(i.LCD_Write_WORD)
+    SetEvent                                 0x080009bd   Thumb Code   106  event.o(i.SetEvent)
+    Set_Graphic_Init                         0x08000a2d   Thumb Code    30  display.o(i.Set_Graphic_Init)
+    Set_Text_Init                            0x08000a4b   Thumb Code    28  display.o(i.Set_Text_Init)
+    SonicGetDistance                         0x08000a69   Thumb Code     6  sonic.o(i.SonicGetDistance)
+    SonicHandler                             0x08000a75   Thumb Code    38  sonic.o(i.SonicHandler)
+    SonicInit                                0x08000aa1   Thumb Code    26  sonic.o(i.SonicInit)
+    SonicReadMiddle                          0x08000ac5   Thumb Code   104  sonic.o(i.SonicReadMiddle)
+    SysTick_Handler                          0x08000b61   Thumb Code    84  main.o(i.SysTick_Handler)
+    SystemInit                               0x08000bb9   Thumb Code   100  system_stm32g4xx.o(i.SystemInit)
+    main                                     0x08000c39   Thumb Code   128  main.o(i.main)
+    Region$$Table$$Base                      0x08000ccc   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08000cec   Number         0  anon$$obj.o(Region$$Table)
     systickms                                0x20000000   Data           4  main.o(.data)
     SystemCoreClock                          0x20000008   Data           4  system_stm32g4xx.o(.data)
     EventQueue                               0x2000000c   Data         804  event.o(.bss)
@@ -706,9 +705,9 @@ Memory Map of the image
 
   Image Entry point : 0x080001d9
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000d24, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000cf8, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000d18, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000cec, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -783,44 +782,44 @@ Memory Map of the image
     0x08000548   0x08000548   0x0000001a   Code   RO           85    DELAY               delay.o
     0x08000562   0x08000562   0x00000026   Code   RO          156    i.DisplayHandler    display.o
     0x08000588   0x08000588   0x000002a4   Code   RO          157    i.DisplayInit       display.o
-    0x0800082c   0x0800082c   0x0000004c   Code   RO          158    i.DisplaySonicDistance  display.o
-    0x08000878   0x08000878   0x00000078   Code   RO           89    i.GetEvent          event.o
-    0x080008f0   0x080008f0   0x00000014   Code   RO           90    i.InitEventHandler  event.o
-    0x08000904   0x08000904   0x00000034   Code   RO          159    i.LCD_Clear         display.o
-    0x08000938   0x08000938   0x00000024   Code   RO          160    i.LCD_ClearText     display.o
-    0x0800095c   0x0800095c   0x00000016   Code   RO          165    i.LCD_PutChar       display.o
-    0x08000972   0x08000972   0x00000016   Code   RO          166    i.LCD_PutString     display.o
-    0x08000988   0x08000988   0x00000022   Code   RO          167    i.LCD_SetCursor     display.o
-    0x080009aa   0x080009aa   0x00000010   Code   RO          170    i.LCD_Write_CMD     display.o
-    0x080009ba   0x080009ba   0x00000010   Code   RO          171    i.LCD_Write_DATA    display.o
-    0x080009ca   0x080009ca   0x00000012   Code   RO          172    i.LCD_Write_WORD    display.o
-    0x080009dc   0x080009dc   0x00000070   Code   RO           91    i.SetEvent          event.o
-    0x08000a4c   0x08000a4c   0x0000001e   Code   RO          173    i.Set_Graphic_Init  display.o
-    0x08000a6a   0x08000a6a   0x0000001c   Code   RO          174    i.Set_Text_Init     display.o
-    0x08000a86   0x08000a86   0x00000002   PAD
-    0x08000a88   0x08000a88   0x0000000c   Code   RO          305    i.SonicGetDistance  sonic.o
-    0x08000a94   0x08000a94   0x0000002c   Code   RO          306    i.SonicHandler      sonic.o
-    0x08000ac0   0x08000ac0   0x00000024   Code   RO          307    i.SonicInit         sonic.o
-    0x08000ae4   0x08000ae4   0x0000006c   Code   RO          308    i.SonicReadMiddle   sonic.o
-    0x08000b50   0x08000b50   0x00000014   Code   RO          309    i.SonicSetInput     sonic.o
-    0x08000b64   0x08000b64   0x0000001c   Code   RO          310    i.SonicSetOutput    sonic.o
-    0x08000b80   0x08000b80   0x00000064   Code   RO            4    i.SysTick_Handler   main.o
-    0x08000be4   0x08000be4   0x0000006c   Code   RO          360    i.SystemInit        system_stm32g4xx.o
-    0x08000c50   0x08000c50   0x00000012   Code   RO          175    i.Wait_Ready        display.o
-    0x08000c62   0x08000c62   0x00000002   PAD
-    0x08000c64   0x08000c64   0x0000008c   Code   RO            5    i.main              main.o
-    0x08000cf0   0x08000cf0   0x00000008   Code   RO          176    i.readStatus        display.o
-    0x08000cf8   0x08000cf8   0x00000020   Data   RO          609    Region$$Table       anon$$obj.o
+    0x0800082c   0x0800082c   0x0000002c   Code   RO          158    i.DisplaySonicDistance  display.o
+    0x08000858   0x08000858   0x00000078   Code   RO           89    i.GetEvent          event.o
+    0x080008d0   0x080008d0   0x00000014   Code   RO           90    i.InitEventHandler  event.o
+    0x080008e4   0x080008e4   0x00000034   Code   RO          159    i.LCD_Clear         display.o
+    0x08000918   0x08000918   0x00000024   Code   RO          160    i.LCD_ClearText     display.o
+    0x0800093c   0x0800093c   0x00000016   Code   RO          165    i.LCD_PutChar       display.o
+    0x08000952   0x08000952   0x00000016   Code   RO          166    i.LCD_PutString     display.o
+    0x08000968   0x08000968   0x00000022   Code   RO          167    i.LCD_SetCursor     display.o
+    0x0800098a   0x0800098a   0x00000010   Code   RO          170    i.LCD_Write_CMD     display.o
+    0x0800099a   0x0800099a   0x00000010   Code   RO          171    i.LCD_Write_DATA    display.o
+    0x080009aa   0x080009aa   0x00000012   Code   RO          172    i.LCD_Write_WORD    display.o
+    0x080009bc   0x080009bc   0x00000070   Code   RO           91    i.SetEvent          event.o
+    0x08000a2c   0x08000a2c   0x0000001e   Code   RO          173    i.Set_Graphic_Init  display.o
+    0x08000a4a   0x08000a4a   0x0000001c   Code   RO          174    i.Set_Text_Init     display.o
+    0x08000a66   0x08000a66   0x00000002   PAD
+    0x08000a68   0x08000a68   0x0000000c   Code   RO          305    i.SonicGetDistance  sonic.o
+    0x08000a74   0x08000a74   0x0000002c   Code   RO          306    i.SonicHandler      sonic.o
+    0x08000aa0   0x08000aa0   0x00000024   Code   RO          307    i.SonicInit         sonic.o
+    0x08000ac4   0x08000ac4   0x0000006c   Code   RO          308    i.SonicReadMiddle   sonic.o
+    0x08000b30   0x08000b30   0x00000014   Code   RO          309    i.SonicSetInput     sonic.o
+    0x08000b44   0x08000b44   0x0000001c   Code   RO          310    i.SonicSetOutput    sonic.o
+    0x08000b60   0x08000b60   0x00000058   Code   RO            4    i.SysTick_Handler   main.o
+    0x08000bb8   0x08000bb8   0x0000006c   Code   RO          360    i.SystemInit        system_stm32g4xx.o
+    0x08000c24   0x08000c24   0x00000012   Code   RO          175    i.Wait_Ready        display.o
+    0x08000c36   0x08000c36   0x00000002   PAD
+    0x08000c38   0x08000c38   0x0000008c   Code   RO            5    i.main              main.o
+    0x08000cc4   0x08000cc4   0x00000008   Code   RO          176    i.readStatus        display.o
+    0x08000ccc   0x08000ccc   0x00000020   Data   RO          609    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08000d18, Size: 0x00000990, Max: 0x00020000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08000cec, Size: 0x00000990, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08000d18   0x00000004   Data   RW            6    .data               main.o
-    0x20000004   0x08000d1c   0x00000002   Data   RW          311    .data               sonic.o
-    0x20000006   0x08000d1e   0x00000002   PAD
-    0x20000008   0x08000d20   0x00000004   Data   RW          362    .data               system_stm32g4xx.o
+    0x20000000   0x08000cec   0x00000004   Data   RW            6    .data               main.o
+    0x20000004   0x08000cf0   0x00000002   Data   RW          311    .data               sonic.o
+    0x20000006   0x08000cf2   0x00000002   PAD
+    0x20000008   0x08000cf4   0x00000004   Data   RW          362    .data               system_stm32g4xx.o
     0x2000000c        -       0x00000324   Zero   RW           92    .bss                event.o
     0x20000330        -       0x00000060   Zero   RW          481    .bss                c_w.l(libspace.o)
     0x20000390        -       0x00000200   Zero   RW          401    HEAP                startup_stm32g474xx.o
@@ -835,15 +834,15 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
         26          2          0          0          0        332   delay.o
-      1090         48          0          0          0       7273   display.o
+      1058         46          0          0          0       7261   display.o
        252         18          0          0        804       2622   event.o
-       240         16          0          4          0     683576   main.o
+       228         16          0          4          0     683572   main.o
        248         36          0          2          0       2652   sonic.o
         64         26        472          0       1536        792   startup_stm32g474xx.o
        108          8          0          4          0       1347   system_stm32g4xx.o
 
     ----------------------------------------------------------------------
-      2032        154        504         12       2340     698594   Object Totals
+      1988        152        504         12       2340     698578   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          4          0          0          2          0          0   (incl. Padding)
 
@@ -902,15 +901,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2848        196        504         12       2436     697934   Grand Totals
-      2848        196        504         12       2436     697934   ELF Image Totals
-      2848        196        504         12          0          0   ROM Totals
+      2804        194        504         12       2436     697918   Grand Totals
+      2804        194        504         12       2436     697918   ELF Image Totals
+      2804        194        504         12          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 3352 (   3.27kB)
+    Total RO  Size (Code + RO Data)                 3308 (   3.23kB)
     Total RW  Size (RW Data + ZI Data)              2448 (   2.39kB)
-    Total ROM Size (Code + RO Data + RW Data)       3364 (   3.29kB)
+    Total ROM Size (Code + RO Data + RW Data)       3320 (   3.24kB)
 
 ==============================================================================
 

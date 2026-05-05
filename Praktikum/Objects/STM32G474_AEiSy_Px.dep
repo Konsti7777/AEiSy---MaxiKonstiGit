@@ -1,6 +1,6 @@
 Dependencies for Project 'STM32G474', Target 'AEiSy_Px': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x69F9F535)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x69F9F810)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
@@ -34,7 +34,7 @@ I (.\CMSIS\cmsis_compiler.h)(0x69CBC607)
 I (.\CMSIS\cmsis_armcc.h)(0x69CBC607)
 I (.\CMSIS\mpu_armv7.h)(0x69CBC607)
 F (.\LED.h)(0x69DE3622)()
-F (.\Display.c)(0x69F9F4EE)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\display.o --omf_browse .\objects\display.crf --depend .\objects\display.d)
+F (.\Display.c)(0x69F9FC7C)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\display.o --omf_browse .\objects\display.crf --depend .\objects\display.d)
 I (Display.h)(0x69F9E3F6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
 I (Event.h)(0x69F9ED4F)

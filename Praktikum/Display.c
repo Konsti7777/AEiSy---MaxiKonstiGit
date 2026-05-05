@@ -366,17 +366,11 @@ void LCD_Clear(void){
 }
 
 void DisplaySonicDistance(void){
-	//LCD_Clear();
-	//LCD_ClearText();
 	uint16_t distance = SonicGetDistance();
-	LCD_SetCursor(80,80);
-	char buffer[6];
-	snprintf(buffer, sizeof buffer, "%u", distance);
+	LCD_SetCursor(8,8);
+	char buffer[10];
+	snprintf(buffer, sizeof buffer, "%u  ", distance);
 	LCD_PutString(buffer);
-	LCD_SetCursor(60,60);
-	LCD_PutChar(buffer[1]);
-	LCD_SetCursor(30,30);
-	LCD_PutString("TS");
 	
 }
 	

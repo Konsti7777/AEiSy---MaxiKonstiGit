@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\EBSy_Px.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\EBSy_Px.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue May 05 15:48:47 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue May 05 16:19:42 2026
 <BR><P>
-<H3>Maximum Stack Usage =        176 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        184 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; DisplayHandler &rArr; DisplaySonicDistance &rArr; __2snprintf &rArr; _printf_char_common &rArr; __printf
 <P>
@@ -277,7 +277,7 @@ Global Symbols
 <P><STRONG><a name="[cc]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[81]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 184 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; DisplayHandler &rArr; DisplaySonicDistance &rArr; __2snprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -767,7 +767,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[91]"></a>DisplayHandler</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, display.o(i.DisplayHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 160 + Unknown Stack Size
 <LI>Call Chain = DisplayHandler &rArr; DisplaySonicDistance &rArr; __2snprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplaySonicDistance
@@ -790,15 +790,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayHandler
 </UL>
 
-<P><STRONG><a name="[93]"></a>DisplaySonicDistance</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, display.o(i.DisplaySonicDistance))
-<BR><BR>[Stack]<UL><LI>Max Depth = 136 + Unknown Stack Size
+<P><STRONG><a name="[93]"></a>DisplaySonicDistance</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, display.o(i.DisplaySonicDistance))
+<BR><BR>[Stack]<UL><LI>Max Depth = 144 + Unknown Stack Size
 <LI>Call Chain = DisplaySonicDistance &rArr; __2snprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2snprintf
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SonicGetDistance
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetCursor
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PutString
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PutChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayHandler
 </UL>
@@ -816,8 +815,8 @@ Global Symbols
 <P><STRONG><a name="[98]"></a>LCD_Clear</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, display.o(i.LCD_Clear))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = LCD_Clear &rArr; LCD_Write_WORD &rArr; LCD_Write_DATA &rArr; Wait_Ready
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_WORD
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_DATA
+<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_WORD
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_DATA
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_CMD
 </UL>
 <BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayInit
@@ -826,27 +825,26 @@ Global Symbols
 <P><STRONG><a name="[97]"></a>LCD_ClearText</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, display.o(i.LCD_ClearText))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = LCD_ClearText &rArr; LCD_SetCursor &rArr; LCD_Write_DATA &rArr; Wait_Ready
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_DATA
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_DATA
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_CMD
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetCursor
 </UL>
 <BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayInit
 </UL>
 
-<P><STRONG><a name="[9c]"></a>LCD_PutChar</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, display.o(i.LCD_PutChar))
+<P><STRONG><a name="[9e]"></a>LCD_PutChar</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, display.o(i.LCD_PutChar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = LCD_PutChar &rArr; LCD_Write_DATA &rArr; Wait_Ready
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_DATA
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_DATA
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_CMD
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PutString
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplaySonicDistance
 </UL>
 
 <P><STRONG><a name="[9a]"></a>LCD_PutString</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, display.o(i.LCD_PutString))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = LCD_PutString &rArr; LCD_PutChar &rArr; LCD_Write_DATA &rArr; Wait_Ready
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PutChar
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PutChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplaySonicDistance
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayInit
@@ -855,7 +853,7 @@ Global Symbols
 <P><STRONG><a name="[99]"></a>LCD_SetCursor</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, display.o(i.LCD_SetCursor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = LCD_SetCursor &rArr; LCD_Write_DATA &rArr; Wait_Ready
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_DATA
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_DATA
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_CMD
 </UL>
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ClearText
@@ -871,28 +869,28 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_Text_Init
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_Graphic_Init
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetCursor
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PutChar
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PutChar
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ClearText
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayInit
 </UL>
 
-<P><STRONG><a name="[9e]"></a>LCD_Write_DATA</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, display.o(i.LCD_Write_DATA))
+<P><STRONG><a name="[9d]"></a>LCD_Write_DATA</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, display.o(i.LCD_Write_DATA))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = LCD_Write_DATA &rArr; Wait_Ready
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait_Ready
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_WORD
+<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_WORD
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetCursor
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PutChar
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PutChar
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ClearText
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 </UL>
 
-<P><STRONG><a name="[9d]"></a>LCD_Write_WORD</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, display.o(i.LCD_Write_WORD))
+<P><STRONG><a name="[9c]"></a>LCD_Write_WORD</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, display.o(i.LCD_Write_WORD))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = LCD_Write_WORD &rArr; LCD_Write_DATA &rArr; Wait_Ready
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_DATA
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_DATA
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_Text_Init
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_Graphic_Init
@@ -909,7 +907,7 @@ Global Symbols
 <P><STRONG><a name="[95]"></a>Set_Graphic_Init</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, display.o(i.Set_Graphic_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Set_Graphic_Init &rArr; LCD_Write_WORD &rArr; LCD_Write_DATA &rArr; Wait_Ready
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_WORD
+<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_WORD
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_CMD
 </UL>
 <BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayInit
@@ -918,7 +916,7 @@ Global Symbols
 <P><STRONG><a name="[94]"></a>Set_Text_Init</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, display.o(i.Set_Text_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Set_Text_Init &rArr; LCD_Write_WORD &rArr; LCD_Write_DATA &rArr; Wait_Ready
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_WORD
+<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_WORD
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_CMD
 </UL>
 <BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayInit
@@ -951,7 +949,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SonicHandler
 </UL>
 
-<P><STRONG><a name="[c]"></a>SysTick_Handler</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, main.o(i.SysTick_Handler))
+<P><STRONG><a name="[c]"></a>SysTick_Handler</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, main.o(i.SysTick_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SysTick_Handler &rArr; SetEvent
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetEvent
@@ -962,7 +960,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g474xx.o(.text)
 </UL>
 <P><STRONG><a name="[82]"></a>main</STRONG> (Thumb, 128 bytes, Stack size 24 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 184 + Unknown Stack Size
 <LI>Call Chain = main &rArr; DisplayHandler &rArr; DisplaySonicDistance &rArr; __2snprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SonicHandler
@@ -982,7 +980,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readStatus
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_DATA
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_DATA
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Write_CMD
 </UL>
 
