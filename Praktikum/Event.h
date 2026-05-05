@@ -52,6 +52,7 @@
 #define  EVT_500MS_EVT 1u
 #define	 EVT_INIT_EVT 2u
 #define	 EVT_SONIC_EVT 3u
+#define	 EVT_DISPLAY_SONIC_EVT 4u
 
 
 

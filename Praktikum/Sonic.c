@@ -63,6 +63,7 @@ void SonicHandler(EVENT_T event)
 
         case EVT_SONIC_EVT:
             lastDistance = SonicReadMiddle();
+						
             break;
 
         default:

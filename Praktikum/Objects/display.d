@@ -10,3 +10,5 @@
 .\objects\display.o: .\CMSIS\cmsis_armcc.h
 .\objects\display.o: .\CMSIS\mpu_armv7.h
 .\objects\display.o: .\System\stm32g4xx.h
+.\objects\display.o: sonic.h
+.\objects\display.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

@@ -147,41 +147,41 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>352</LineNumber>
+          <LineNumber>375</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
+          <Address>134219848</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
+          <BreakIfRCount>1</BreakIfRCount>
           <Filename>.\Display.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression></Expression>
+          <Expression>\\EBSy_Px\Display.c\375</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>350</LineNumber>
+          <LineNumber>285</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
+          <Address>134220226</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
+          <BreakIfRCount>1</BreakIfRCount>
           <Filename>.\Display.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression></Expression>
+          <Expression>\\EBSy_Px\Display.c\285</Expression>
         </Bp>
         <Bp>
           <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>344</LineNumber>
+          <LineNumber>243</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134219426</Address>
+          <Address>134221038</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -190,23 +190,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>.\Display.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\\Display.c\344</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>346</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134219444</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\Display.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\\Display.c\346</Expression>
+          <Expression>\\EBSy_Px\Display.c\243</Expression>
         </Bp>
       </Breakpoint>
       <MemoryWindow1>

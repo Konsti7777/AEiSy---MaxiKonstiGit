@@ -1,5 +1,7 @@
 #include "Display.h"
 #include <stm32g4xx.h>
+#include "sonic.h"
+#include "stdio.h"
 
 #define LCD_DATA_ADDR (*(volatile uint8_t*) 0x60000000)
 #define LCD_CMD_ADDR (*(volatile uint8_t*) 0x60000001)
@@ -225,12 +227,12 @@ void DisplayInit(void){
 
 	LCD_ClearText();
 	LCD_Clear();
-	//LCD_SetCursor(0,0);
-	//LCD_PutString("Hallo Welt!");
+	LCD_SetCursor(0,0);
+	LCD_PutString("Hallo Welt!");
 	//LCD_SetCursor(4,4);
 	//LCD_PutChar('c');
-	//LCD_DrawRect(5,0,6,7);
-	LCD_SetPixel(4,4);
+	//LCD_DrawRect(5,0,60,70);
+	//LCD_SetPixel(4,4);
 //	GPIOE->MODER &= ~GPIO_MODER_MODE11_Msk; //TODO
 //	GPIOE->MODER |= (1<<22);
 	//LCD_DrawBitmap(image);
@@ -290,7 +292,7 @@ void LCD_PutString(const char *s){
 }
 
 void LCD_SetCursor(uint8_t x, uint8_t y){
-    uint16_t addr = y * 30 + x;   
+    uint16_t addr =0x0000 + ( y * 30 + x);   
     
     LCD_Write_DATA(addr & 0xFF);
     LCD_Write_DATA((addr >> 8) & 0xFF);
@@ -298,7 +300,7 @@ void LCD_SetCursor(uint8_t x, uint8_t y){
 }
 
 void LCD_SetGraphicAddress(uint8_t x, uint8_t y){
-	uint16_t graphAddr = y + x;
+	uint16_t graphAddr = 0x200 + (y * 30 + x/8);
 	LCD_Write_WORD(graphAddr);
 	LCD_Write_CMD(0x24);
 }
@@ -315,10 +317,7 @@ void LCD_ClearText(void){
 
 void LCD_SetPixel(uint8_t x, uint8_t y){
 		LCD_SetGraphicAddress(x,y);
-		//LCD_SetCursor(x,y);
-		LCD_Write_DATA(1u<<(7 - (x%8)));
-    //LCD_Write_CMD(0xC0); // Bit setzen 
-		LCD_Write_CMD(0xF8 | (7 - (8 % x)));
+		LCD_Write_CMD(0xF8 | (7 - (x % 8)));
 }
 
 void LCD_DrawHLine(uint8_t x1, uint8_t x2, uint8_t y){
@@ -365,6 +364,21 @@ void LCD_Clear(void){
 		}
 	}
 }
+
+void DisplaySonicDistance(void){
+	//LCD_Clear();
+	//LCD_ClearText();
+	uint16_t distance = SonicGetDistance();
+	LCD_SetCursor(80,80);
+	char buffer[6];
+	snprintf(buffer, sizeof buffer, "%u", distance);
+	LCD_PutString(buffer);
+	LCD_SetCursor(60,60);
+	LCD_PutChar(buffer[1]);
+	LCD_SetCursor(30,30);
+	LCD_PutString("TS");
+	
+}
 	
 void DisplayHandler(EVENT_T currentEvent){
 	
@@ -374,6 +388,9 @@ void DisplayHandler(EVENT_T currentEvent){
 				DisplayInit();
 				break;
 			case EVT_NOEVT:
+				break;
+			case EVT_DISPLAY_SONIC_EVT:
+				DisplaySonicDistance();
 				break;
 				default:
 						break;		

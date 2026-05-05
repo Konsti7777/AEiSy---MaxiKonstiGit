@@ -1,6 +1,6 @@
 Dependencies for Project 'STM32G474', Target 'AEiSy_Px': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x69F9E1E0)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x69F9F535)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
@@ -12,19 +12,20 @@ I (.\CMSIS\cmsis_armcc.h)(0x69CBC607)
 I (.\CMSIS\mpu_armv7.h)(0x69CBC607)
 I (.\System\stm32g4xx.h)(0x69CBC607)
 I (delay.h)(0x69CBC607)
-I (Event.h)(0x69F9DEFE)
+I (Event.h)(0x69F9ED4F)
 I (LED.h)(0x69DE3622)
 I (Display.h)(0x69F9E3F6)
+I (sonic.h)(0x69F9DEFE)
 F (.\delay.s)(0x69CBC607)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include--pd "__UVISION_VERSION SETA 536" --pd "STM32G474xx SETA 1"--list .\listings\delay.lst --xref -o .\objects\delay.o --depend .\objects\delay.d)
 F (.\delay.h)(0x69CBC607)()
 F (.\Event.c)(0x69CBE17A)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\event.o --omf_browse .\objects\event.crf --depend .\objects\event.d)
-I (event.h)(0x69F9DEFE)
+I (event.h)(0x69F9ED4F)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
-F (.\Event.h)(0x69F9DEFE)()
+F (.\Event.h)(0x69F9ED4F)()
 F (.\LED.c)(0x69DE4227)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
 I (LED.h)(0x69DE3622)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
-I (Event.h)(0x69F9DEFE)
+I (Event.h)(0x69F9ED4F)
 I (.\System\stm32g4xx.h)(0x69CBC607)
 I (.\System\stm32g474xx.h)(0x69CBC607)
 I (.\CMSIS\core_cm4.h)(0x69CBC607)
@@ -33,10 +34,10 @@ I (.\CMSIS\cmsis_compiler.h)(0x69CBC607)
 I (.\CMSIS\cmsis_armcc.h)(0x69CBC607)
 I (.\CMSIS\mpu_armv7.h)(0x69CBC607)
 F (.\LED.h)(0x69DE3622)()
-F (.\Display.c)(0x69F9E7A6)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\display.o --omf_browse .\objects\display.crf --depend .\objects\display.d)
+F (.\Display.c)(0x69F9F4EE)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\display.o --omf_browse .\objects\display.crf --depend .\objects\display.d)
 I (Display.h)(0x69F9E3F6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
-I (Event.h)(0x69F9DEFE)
+I (Event.h)(0x69F9ED4F)
 I (.\System\stm32g4xx.h)(0x69CBC607)
 I (.\System\stm32g474xx.h)(0x69CBC607)
 I (.\CMSIS\core_cm4.h)(0x69CBC607)
@@ -44,11 +45,13 @@ I (.\CMSIS\cmsis_version.h)(0x69CBC607)
 I (.\CMSIS\cmsis_compiler.h)(0x69CBC607)
 I (.\CMSIS\cmsis_armcc.h)(0x69CBC607)
 I (.\CMSIS\mpu_armv7.h)(0x69CBC607)
+I (sonic.h)(0x69F9DEFE)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
 F (.\Display.h)(0x69F9E3F6)()
-F (.\Sonic.c)(0x69F9DEFE)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\sonic.o --omf_browse .\objects\sonic.crf --depend .\objects\sonic.d)
+F (.\Sonic.c)(0x69F9F2F7)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\sonic.o --omf_browse .\objects\sonic.crf --depend .\objects\sonic.d)
 I (sonic.h)(0x69F9DEFE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
-I (Event.h)(0x69F9DEFE)
+I (Event.h)(0x69F9ED4F)
 I (.\System\stm32g474xx.h)(0x69CBC607)
 I (.\CMSIS\core_cm4.h)(0x69CBC607)
 I (.\CMSIS\cmsis_version.h)(0x69CBC607)
