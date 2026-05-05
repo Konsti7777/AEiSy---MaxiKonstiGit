@@ -154,7 +154,7 @@ void DisplayInit(void){
 	GPIOD->AFR[1] |= (12<<(6*4));	
 	
 	GPIOD->MODER &= ~GPIO_MODER_MODE15_Msk;
-	GPIOD->MODER |= (2<<(15*2));
+	GPIOD->MODER |= (2U<<(15*2));
 	GPIOD->AFR[1] &= ~GPIO_AFRH_AFRH7;
 	GPIOD->AFR[1] |= (12<<(7*4));
 
@@ -224,21 +224,25 @@ void DisplayInit(void){
 	//LCD_Write_CMD(0x98);//Display Mode: Text off, graphic on
 
 	LCD_ClearText();
+	LCD_Clear();
 	//LCD_SetCursor(0,0);
 	//LCD_PutString("Hallo Welt!");
 	//LCD_SetCursor(4,4);
 	//LCD_PutChar('c');
 	//LCD_DrawRect(5,0,6,7);
-	//LCD_SetPixel(4,4);
+	LCD_SetPixel(4,4);
 //	GPIOE->MODER &= ~GPIO_MODER_MODE11_Msk; //TODO
 //	GPIOE->MODER |= (1<<22);
-	LCD_DrawBitmap(image);
+	//LCD_DrawBitmap(image);
+	
 }
 
 static void Wait_Ready(void){
 	while((readStatus() & 0x03) != 0x03){}
 	}
 
+
+	
 void LCD_Write_CMD(uint8_t cmd){
 	Wait_Ready();
 	LCD_CMD_ADDR = cmd;
@@ -294,7 +298,7 @@ void LCD_SetCursor(uint8_t x, uint8_t y){
 }
 
 void LCD_SetGraphicAddress(uint8_t x, uint8_t y){
-	uint16_t graphAddr =(0x200 + y) * 30 + x/8;
+	uint16_t graphAddr = y + x;
 	LCD_Write_WORD(graphAddr);
 	LCD_Write_CMD(0x24);
 }
@@ -311,7 +315,8 @@ void LCD_ClearText(void){
 
 void LCD_SetPixel(uint8_t x, uint8_t y){
 		LCD_SetGraphicAddress(x,y);
-		LCD_Write_DATA(0xFF);
+		//LCD_SetCursor(x,y);
+		LCD_Write_DATA(1u<<(7 - (x%8)));
     //LCD_Write_CMD(0xC0); // Bit setzen 
 		LCD_Write_CMD(0xF8 | (7 - (8 % x)));
 }
@@ -347,6 +352,20 @@ void LCD_DrawBitmap(const uint8_t *picture){
 		}
 	}
 }
+
+void LCD_Clear(void){
+	uint16_t addr = 0x0200;
+	LCD_Write_WORD(addr);
+	LCD_Write_CMD(0x24);
+	
+	for (int row = 0; row < 128; row++){
+		for(int col = 0; col < 30; col++){
+			LCD_Write_DATA(0x00);
+			LCD_Write_CMD(0xc0);
+		}
+	}
+}
+	
 void DisplayHandler(EVENT_T currentEvent){
 	
 			switch(currentEvent.EventID)

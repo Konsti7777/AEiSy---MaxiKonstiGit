@@ -92,7 +92,7 @@ int main(void) {
 		//LedHandler(currentEvent);
 		DisplayHandler(currentEvent);
 		}
-		SonicHandler(currentEvent);
+		//SonicHandler(currentEvent);
 		
 		//delayms(500);
 

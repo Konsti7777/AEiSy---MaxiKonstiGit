@@ -4,6 +4,7 @@
 ".\objects\event.o"
 ".\objects\led.o"
 ".\objects\display.o"
+".\objects\sonic.o"
 ".\objects\system_stm32g4xx.o"
 ".\objects\startup_stm32g474xx.o"
 --strict --scatter ".\Objects\EBSy_Px.sct"

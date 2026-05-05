@@ -1,0 +1,13 @@
+.\objects\sonic.o: Sonic.c
+.\objects\sonic.o: sonic.h
+.\objects\sonic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sonic.o: Event.h
+.\objects\sonic.o: .\System\stm32g474xx.h
+.\objects\sonic.o: .\CMSIS\core_cm4.h
+.\objects\sonic.o: .\CMSIS\cmsis_version.h
+.\objects\sonic.o: .\CMSIS\cmsis_compiler.h
+.\objects\sonic.o: .\CMSIS\cmsis_armcc.h
+.\objects\sonic.o: .\CMSIS\mpu_armv7.h
+.\objects\sonic.o: .\System\stm32g4xx.h
+.\objects\sonic.o: .\System\stm32g474xx.h
+.\objects\sonic.o: delay.h

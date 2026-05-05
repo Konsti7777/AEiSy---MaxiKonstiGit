@@ -22,36 +22,47 @@ Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
 C:\Users\max2184s\Desktop\AEiSy---MaxiKonstiGit\Praktikum\STM32G474.uvprojx
-Project File Date:  04/14/2026
+Project File Date:  05/05/2026
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Build target 'AEiSy_Px'
+Rebuild target 'AEiSy_Px'
+assembling startup_stm32g474xx.s...
+assembling delay.s...
+compiling Event.c...
+compiling main.c...
+compiling LED.c...
+LED.c(24): warning:  #1-D: last line of file ends without a newline
+  	}
+LED.c: 1 warning, 0 errors
+compiling system_stm32g4xx.c...
 compiling Display.c...
-Display.c(194): warning:  #61-D: integer operation result is out of range
-  	GPIOD->MODER |= (2<<(15*2));
-Display.c(194): warning:  #68-D: integer conversion resulted in a change of sign
-  	GPIOD->MODER |= (2<<(15*2));
-Display.c(196): warning:  #61-D: integer operation result is out of range
+Display.c(159): warning:  #61-D: integer operation result is out of range
   	GPIOD->AFR[1] |= (12<<(7*4));
-Display.c(196): warning:  #68-D: integer conversion resulted in a change of sign
+Display.c(159): warning:  #68-D: integer conversion resulted in a change of sign
   	GPIOD->AFR[1] |= (12<<(7*4));
-Display.c(211): warning:  #61-D: integer operation result is out of range
+Display.c(174): warning:  #61-D: integer operation result is out of range
   	GPIOE->AFR[0] |= (12<<(7*4));		
-Display.c(211): warning:  #68-D: integer conversion resulted in a change of sign
+Display.c(174): warning:  #68-D: integer conversion resulted in a change of sign
   	GPIOE->AFR[0] |= (12<<(7*4));		
-Display.c(241): warning:  #61-D: integer operation result is out of range
+Display.c(204): warning:  #61-D: integer operation result is out of range
   	GPIOD->AFR[0] |= (12<<(7*4));	
-Display.c(241): warning:  #68-D: integer conversion resulted in a change of sign
+Display.c(204): warning:  #68-D: integer conversion resulted in a change of sign
   	GPIOD->AFR[0] |= (12<<(7*4));	
-Display.c(250): warning:  #61-D: integer operation result is out of range
+Display.c(213): warning:  #61-D: integer operation result is out of range
   	FMC_Bank1_R->BTCR[1] = (3<<30) | (255<<8) | (15<<0);
-Display.c(393): warning:  #1-D: last line of file ends without a newline
+Display.c(384): warning:  #1-D: last line of file ends without a newline
   	
-Display.c: 10 warnings, 0 errors
+Display.c: 8 warnings, 0 errors
+compiling Sonic.c...
+sonic.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+Sonic.c(76): warning:  #1-D: last line of file ends without a newline
+  }
+Sonic.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=1792 RO-data=5444 RW-data=8 ZI-data=2440  
-".\Objects\EBSy_Px.axf" - 0 Error(s), 10 Warning(s).
+Program Size: Code=1940 RO-data=504 RW-data=8 ZI-data=2440  
+".\Objects\EBSy_Px.axf" - 0 Error(s), 11 Warning(s).
 
 <h2>Software Packages used:</h2>
 
