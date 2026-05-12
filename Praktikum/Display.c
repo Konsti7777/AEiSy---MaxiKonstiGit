@@ -2,6 +2,7 @@
 #include <stm32g4xx.h>
 #include "sonic.h"
 #include "stdio.h"
+#include "stm32g474xx.h"
 #include "cmps14.h"
 
 #define LCD_DATA_ADDR (*(volatile uint8_t*) 0x60000000)
@@ -366,25 +367,23 @@ void LCD_Clear(void){
 	}
 }
 
+void bufferedPutString(uint16_t valueToPrint, int x, int y){
+	LCD_SetCursor(x,y);
+	char buffer[10];
+	snprintf(buffer, sizeof buffer, "%u  ", valueToPrint);
+	LCD_PutString(buffer);
+}
+
 void DisplaySonicDistance(void){
 	
-	uint16_t distanceLeft = SonicGetDistanceLeft();
-	LCD_SetCursor(2,2);
-	char buffer[10];
-	snprintf(buffer, sizeof buffer, "%u  ", distanceLeft);
-	LCD_PutString(buffer);
+	uint16_t distanceRight = SonicGetDistanceRight();
+	bufferedPutString(distanceRight,2,2);
 	
 	uint16_t distanceMiddle = SonicGetDistanceMiddle();
-	LCD_SetCursor(2,8);
-	char buffer2[10];
-	snprintf(buffer2, sizeof buffer2, "%u  ", distanceMiddle);
-	LCD_PutString(buffer2);
+	bufferedPutString(distanceMiddle,8,2);
 	
-	uint16_t distanceRight = SonicGetDistanceRight();
-	LCD_SetCursor(2,14);
-	char buffer3[10];
-	snprintf(buffer3, sizeof buffer3, "%u  ", distanceRight);
-	LCD_PutString(buffer3);
+	uint16_t distanceLeft = SonicGetDistanceLeft();
+	bufferedPutString(distanceLeft,14,2);
 	
 }
 	
