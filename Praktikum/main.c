@@ -74,7 +74,7 @@ void SysTick_Handler(){
     {
         
     }
-	if ((systickms % 900) == 0)
+	if ((systickms % 700) == 0)
 				SetEvent(EVT_DISPLAY_SONIC_EVT, 0U, 0UL);
 	}
 
