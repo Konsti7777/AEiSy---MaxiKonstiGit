@@ -34,6 +34,7 @@ static uint16_t SonicReadSensor(uint8_t index)
 {
     uint8_t pin = sonic_pins[index];
     uint32_t time = 0;
+    uint32_t timeout = 30000U; /* simple loop timeout */
 
     SonicSetOutput(pin);
 
@@ -47,16 +48,24 @@ static uint16_t SonicReadSensor(uint8_t index)
 
     SonicSetInput(pin);
 
+    /* wait for rising edge, but bail out on timeout */
     while ((GPIOC->IDR & (1 << pin)) == 0)
     {
+        if (--timeout == 0U) return 0U;
     }
 
+    /* measure high time with a timeout */
+    timeout = 30000U;
     while ((GPIOC->IDR & (1 << pin)) != 0)
     {
         time++;
+        if (--timeout == 0U) break;
     }
 
-    return time / 58;
+    if (time == 0U) return 0U; /* no echo or too short */
+
+    /* keep original crude conversion (loop ticks to cm) */
+    return (uint16_t)(time / 58U);
 }
 
 /* Read next sensor in sequence (for backward compatibility) */
