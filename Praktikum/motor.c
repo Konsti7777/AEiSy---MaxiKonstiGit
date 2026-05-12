@@ -2,25 +2,25 @@
 #include "stm32g4xx.h"
 
 void Motor_Init(void) {
-    // 1. Clocks aktivieren: GPIOB und TIM4 (TIM4 hängt an APB1)
-    RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN;
+    // 1. Clocks aktivieren: GPIOD und TIM4 (TIM4 hängt an APB1)
+    RCC->AHB2ENR |= RCC_AHB2ENR_GPIODEN;
     RCC->APB1ENR1 |= RCC_APB1ENR1_TIM4EN;
 
     // 2. GPIO Konfiguration
-    // PB6 (CH1) und PB7 (CH2) auf Alternate Function (10) setzen
-    GPIOB->MODER &= ~(GPIO_MODER_MODE6 | GPIO_MODER_MODE7);
-    GPIOB->MODER |= (GPIO_MODER_MODE6_1 | GPIO_MODER_MODE7_1);
+    // PD6 (CH1) und PD7 (CH2) auf Alternate Function (10) setzen
+    GPIOD->MODER &= ~(GPIO_MODER_MODE12 | GPIO_MODER_MODE13);
+    GPIOD->MODER |= (GPIO_MODER_MODE12_1 | GPIO_MODER_MODE13_1);
     
-    // AF2 ist TIM4 für PB6 und PB7
-    GPIOB->AFR[0] &= ~(GPIO_AFRL_AFSEL6 | GPIO_AFRL_AFSEL7);
-    GPIOB->AFR[0] |= (2 << GPIO_AFRL_AFSEL6_Pos) | (2 << GPIO_AFRL_AFSEL7_Pos);
+    // AF2 ist TIM4 für PD6 und PD7
+    GPIOD->AFR[1] &= ~(GPIO_AFRH_AFSEL12 | GPIO_AFRH_AFSEL13);
+    GPIOD->AFR[1] |= (2 << GPIO_AFRH_AFSEL12_Pos) | (2 << GPIO_AFRH_AFSEL13_Pos);
 
-    // Richtungspins PB8 und PB9 als Output (01)
-    GPIOB->MODER &= ~(GPIO_MODER_MODE8 | GPIO_MODER_MODE9);
-    GPIOB->MODER |= (GPIO_MODER_MODE8_0 | GPIO_MODER_MODE9_0);
+    // Richtungspins PD8 und PD9 als Output (01)
+    GPIOD->MODER &= ~(GPIO_MODER_MODE14 | GPIO_MODER_MODE15);
+    GPIOD->MODER |= (GPIO_MODER_MODE14_0 | GPIO_MODER_MODE15_0);
 
-    // 3. TIM4 Konfiguration (für 10 kHz PWM bei 170 MHz Systemtakt)
-    TIM4->PSC = 170 - 1;          // Timer-Frequenz = 1 MHz
+    // 3. TIM4 Konfiguration (für 10 kHz PWM bei 48 MHz Systemtakt)
+    TIM4->PSC = 48 - 1;          // Timer-Frequenz = 1 MHz
     TIM4->ARR = 100 - 1;          // 100 Schritte -> 10 kHz Frequenz
 
     // PWM Mode 1 für Channel 1 (Motor Links) und Channel 2 (Motor Rechts)
@@ -34,6 +34,20 @@ void Motor_Init(void) {
     TIM4->CR1 |= TIM_CR1_CEN;
 }
 
+
+void MotorHandler(EVENT_T event)
+{
+    switch (event.EventID)
+    {
+        case EVT_INIT_EVT:
+            Motor_Init();
+            break;
+				case EVT_FAHREN_EVT:
+					Motor_DriveForward(50);
+        default:
+            break;
+    }
+}
 // Interne Hilfsfunktion
 void Motor_SetSpeed(uint8_t left, uint8_t right) {
     TIM4->CCR1 = left;
@@ -41,26 +55,25 @@ void Motor_SetSpeed(uint8_t left, uint8_t right) {
 }
 
 void Motor_DriveForward(uint8_t speed) {
-    GPIOB->BSRR = GPIO_BSRR_BS8; // Richtung vorwärts
-    GPIOB->BSRR = GPIO_BSRR_BS9;
+    GPIOD->BSRR = GPIO_BSRR_BS14 | GPIO_BSRR_BS15;
     Motor_SetSpeed(speed, speed);
 }
 
 void Motor_DriveBackward(uint8_t speed) {
-    GPIOB->BSRR = GPIO_BSRR_BR8; // Richtung rückwärts
-    GPIOB->BSRR = GPIO_BSRR_BR9;
+    GPIOD->BSRR = GPIO_BSRR_BR8; // Richtung rückwärts
+    GPIOD->BSRR = GPIO_BSRR_BR9;
     Motor_SetSpeed(speed, speed);
 }
 
 void Motor_TurnCenteredClockwise(uint8_t speed) {
-    GPIOB->BSRR = GPIO_BSRR_BS8; // Links vorwärts
-    GPIOB->BSRR = GPIO_BSRR_BR9; // Rechts rückwärts
+    GPIOD->BSRR = GPIO_BSRR_BS8; // Links vorwärts
+    GPIOD->BSRR = GPIO_BSRR_BR9; // Rechts rückwärts
     Motor_SetSpeed(speed, speed);
 }
 
 void Motor_TurnCenteredCounterClockwise(uint8_t speed) {
-    GPIOB->BSRR = GPIO_BSRR_BR8; // Links rückwärts
-    GPIOB->BSRR = GPIO_BSRR_BS9; // Rechts vorwärts
+    GPIOD->BSRR = GPIO_BSRR_BR8; // Links rückwärts
+    GPIOD->BSRR = GPIO_BSRR_BS9; // Rechts vorwärts
     Motor_SetSpeed(speed, speed);
 }
 

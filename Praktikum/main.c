@@ -49,6 +49,7 @@
 #include "Display.h"
 #include "sonic.h"
 #include "cmps14.h"
+#include "motor.h"
 
 /* ----------- V A R I A B L E S   &  C O N S T A N T S  --------------- */
 
@@ -74,6 +75,7 @@ void SysTick_Handler(){
 	if ((systickms % 100) == 0)
     {
         SetEvent(EVT_SONIC_EVT, 0U, 0UL);
+				SetEvent(EVT_FAHREN_EVT, 0U, 0UL);
     }
 	if ((systickms % 500) == 0)
 		SetEvent(EVT_DISPLAY_SONIC_EVT, 0U, 0UL);
@@ -97,6 +99,7 @@ int main(void) {
 		DisplayHandler(currentEvent);
 		SonicHandler(currentEvent);
 		CmpsHandler(currentEvent);
+		MotorHandler(currentEvent);
 	}
 		//delayms(500);
 
