@@ -15,3 +15,4 @@
 .\objects\main.o: LED.h
 .\objects\main.o: Display.h
 .\objects\main.o: sonic.h
+.\objects\main.o: cmps14.h

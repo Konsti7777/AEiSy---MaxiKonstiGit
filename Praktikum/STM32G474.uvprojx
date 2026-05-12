@@ -438,6 +438,16 @@
               <FileType>5</FileType>
               <FilePath>.\Sonic.h</FilePath>
             </File>
+            <File>
+              <FileName>CMPS14.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CMPS14.h</FilePath>
+            </File>
+            <File>
+              <FileName>CMPS14.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CMPS14.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

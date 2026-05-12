@@ -2,6 +2,7 @@
 #include <stm32g4xx.h>
 #include "sonic.h"
 #include "stdio.h"
+#include "cmps14.h"
 
 #define LCD_DATA_ADDR (*(volatile uint8_t*) 0x60000000)
 #define LCD_CMD_ADDR (*(volatile uint8_t*) 0x60000001)
@@ -372,6 +373,11 @@ void DisplaySonicDistance(void){
 	snprintf(buffer, sizeof buffer, "%u  ", distance);
 	LCD_PutString(buffer);
 	
+	uint16_t rotation = CMPS14_GetHeading();
+	LCD_SetCursor(8,10);
+	char buffer2[10];
+	snprintf(buffer2, sizeof buffer2, "%u  ", rotation/10);
+	LCD_PutString(buffer2);
 }
 	
 void DisplayHandler(EVENT_T currentEvent){

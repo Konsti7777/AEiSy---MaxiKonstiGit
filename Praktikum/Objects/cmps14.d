@@ -1,0 +1,12 @@
+.\objects\cmps14.o: CMPS14.c
+.\objects\cmps14.o: cmps14.h
+.\objects\cmps14.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\cmps14.o: event.h
+.\objects\cmps14.o: .\System\stm32g4xx.h
+.\objects\cmps14.o: .\System\stm32g474xx.h
+.\objects\cmps14.o: .\CMSIS\core_cm4.h
+.\objects\cmps14.o: .\CMSIS\cmsis_version.h
+.\objects\cmps14.o: .\CMSIS\cmsis_compiler.h
+.\objects\cmps14.o: .\CMSIS\cmsis_armcc.h
+.\objects\cmps14.o: .\CMSIS\mpu_armv7.h
+.\objects\cmps14.o: .\System\stm32g4xx.h

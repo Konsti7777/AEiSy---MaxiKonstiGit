@@ -48,6 +48,7 @@
 #include "LED.h"
 #include "Display.h"
 #include "sonic.h"
+#include "cmps14.h"
 
 /* ----------- V A R I A B L E S   &  C O N S T A N T S  --------------- */
 
@@ -74,7 +75,7 @@ void SysTick_Handler(){
     {
         
     }
-	if ((systickms % 900) == 0)
+	if ((systickms % 700) == 0)
 				SetEvent(EVT_DISPLAY_SONIC_EVT, 0U, 0UL);
 	}
 
@@ -86,7 +87,7 @@ void SysTick_Handler(){
 int main(void) {
 	InitEventHandler();
   EVENT_T currentEvent;
-	SysTick_Config(SystemCoreClock / 500);
+	SysTick_Config(SystemCoreClock / 1000);
 	SetEvent(EVT_INIT_EVT,0,0);
 	/* Endlosschleife */
 	while(1)
@@ -95,6 +96,7 @@ int main(void) {
 		//LedHandler(currentEvent);
 		DisplayHandler(currentEvent);
 		SonicHandler(currentEvent);
+		CmpsHandler(currentEvent);
 	}
 		//delayms(500);
 

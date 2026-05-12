@@ -12,3 +12,4 @@
 .\objects\display.o: .\System\stm32g4xx.h
 .\objects\display.o: sonic.h
 .\objects\display.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\display.o: cmps14.h
