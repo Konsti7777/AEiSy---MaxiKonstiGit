@@ -26,6 +26,7 @@ void CMPS14_Init(void){
 	
 	USART3->CR1 &= ~USART_CR1_PCE;
 	
+	USART3->CR1 |= (USART_CR1_TE | USART_CR1_RE | USART_CR1_UE);
 }
 
 
