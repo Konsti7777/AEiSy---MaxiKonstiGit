@@ -86,7 +86,7 @@ void SysTick_Handler(){
 int main(void) {
 	InitEventHandler();
   EVENT_T currentEvent;
-	SysTick_Config(SystemCoreClock / 500);
+	SysTick_Config(SystemCoreClock / 1000);
 	SetEvent(EVT_INIT_EVT,0,0);
 	/* Endlosschleife */
 	while(1)
