@@ -367,17 +367,23 @@ void LCD_Clear(void){
 }
 
 void DisplaySonicDistance(void){
-	uint16_t distance = SonicGetDistance();
-	LCD_SetCursor(8,8);
+	uint16_t distanceLeft = SonicGetDistanceLeft();
+	LCD_SetCursor(2,2);
 	char buffer[10];
-	snprintf(buffer, sizeof buffer, "%u  ", distance);
+	snprintf(buffer, sizeof buffer, "%u  ", distanceLeft);
 	LCD_PutString(buffer);
-	
-	uint16_t rotation = CMPS14_GetHeading();
-	LCD_SetCursor(8,10);
-	char buffer2[10];
-	snprintf(buffer2, sizeof buffer2, "%u  ", rotation/10);
-	LCD_PutString(buffer2);
+
+	uint16_t distanceMiddle = SonicGetDistanceMiddle();
+	LCD_SetCursor(2,8);
+	char buffer[10];
+	snprintf(buffer, sizeof buffer, "%u  ", distanceMiddle);
+	LCD_PutString(buffer);
+
+	uint16_t distanceRight = SonicGetDistanceRight();
+	LCD_SetCursor(2,8);
+	char buffer[10];
+	snprintf(buffer, sizeof buffer, "%u  ", distanceRight);
+	LCD_PutString(buffer);
 }
 	
 void DisplayHandler(EVENT_T currentEvent){
