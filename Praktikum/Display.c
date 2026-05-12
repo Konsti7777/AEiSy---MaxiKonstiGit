@@ -230,7 +230,7 @@ void DisplayInit(void){
 	LCD_ClearText();
 	LCD_Clear();
 	LCD_SetCursor(0,0);
-	LCD_PutString("Hallo Welt!");
+	//LCD_PutString("Hallo Welt!");
 	//LCD_SetCursor(4,4);
 	//LCD_PutChar('c');
 	//LCD_DrawRect(5,0,60,70);
@@ -375,6 +375,9 @@ void bufferedPutString(uint16_t valueToPrint, int x, int y){
 }
 
 void DisplaySonicDistance(void){
+	LCD_SetCursor(7,0);
+	LCD_PutString("Sonic-Sensor-Distance");
+	LCD_DrawRect(1,2,15,3);
 	
 	uint16_t distanceRight = SonicGetDistanceRight();
 	bufferedPutString(distanceRight,2,2);
