@@ -377,7 +377,7 @@ void bufferedPutString(uint16_t valueToPrint, int x, int y){
 void DisplaySonicDistance(void){
 	LCD_SetCursor(7,0);
 	LCD_PutString("Sonic-Sensor-Distance");
-	LCD_DrawRect(1,9,239,17);
+	LCD_DrawRect(1,9,239,30);
 	
 	uint16_t distanceRight = SonicGetDistanceRight();
 	bufferedPutString(distanceRight,2,2);
@@ -387,6 +387,9 @@ void DisplaySonicDistance(void){
 	
 	uint16_t distanceLeft = SonicGetDistanceLeft();
 	bufferedPutString(distanceLeft,14,2);
+	
+	uint16_t rotation = CMPS14_GetHeading();
+	bufferedPutString(rotation/10,8,8);
 	
 }
 	
