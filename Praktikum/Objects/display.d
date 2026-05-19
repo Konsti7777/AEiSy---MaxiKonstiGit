@@ -13,3 +13,5 @@
 .\objects\display.o: sonic.h
 .\objects\display.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\display.o: cmps14.h
+.\objects\display.o: delay.h
+.\objects\display.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

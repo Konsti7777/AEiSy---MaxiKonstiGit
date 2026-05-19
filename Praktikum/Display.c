@@ -4,6 +4,8 @@
 #include "stdio.h"
 #include "stm32g474xx.h"
 #include "cmps14.h"
+#include "delay.h"
+#include <stdlib.h> 
 
 #define LCD_DATA_ADDR (*(volatile uint8_t*) 0x60000000)
 #define LCD_CMD_ADDR (*(volatile uint8_t*) 0x60000001)
@@ -230,16 +232,9 @@ void DisplayInit(void){
 
 	LCD_ClearText();
 	LCD_Clear();
-	LCD_SetCursor(0,0);
-	//LCD_PutString("Hallo Welt!");
-	//LCD_SetCursor(4,4);
-	//LCD_PutChar('c');
-	//LCD_DrawRect(5,0,60,70);
-	//LCD_SetPixel(4,4);
-//	GPIOE->MODER &= ~GPIO_MODER_MODE11_Msk; //TODO
-//	GPIOE->MODER |= (1<<22);
-	//LCD_DrawBitmap(image);
-	
+	LCD_DrawBitmap(image);
+	delayms(1500);
+	LCD_Clear();
 }
 
 static void Wait_Ready(void){
@@ -335,6 +330,41 @@ void LCD_DrawVLine(uint8_t x, uint8_t y1, uint8_t y2){
     }
 }
 
+
+void LCD_DrawLine(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)
+{
+    int dx = abs(x1 - x0);
+    int sx = (x0 < x1) ? 1 : -1;
+
+    int dy = -abs(y1 - y0);
+    int sy = (y0 < y1) ? 1 : -1;
+
+    int err = dx + dy;
+    int e2;
+
+    while (1)
+    {
+        LCD_SetPixel(x0, y0);
+
+        if (x0 == x1 && y0 == y1)
+            break;
+
+        e2 = 2 * err;
+
+        if (e2 >= dy)
+        {
+            err += dy;
+            x0 += sx;
+        }
+
+        if (e2 <= dx)
+        {
+            err += dx;
+            y0 += sy;
+        }
+    }
+}
+
 void LCD_DrawRect(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2){
     LCD_DrawHLine(x1, x2, y1); // oben
     LCD_DrawHLine(x1, x2, y2); // unten
@@ -376,7 +406,7 @@ void bufferedPutString(uint16_t valueToPrint, int x, int y){
 }
 
 void DisplaySonicDistance(void){
-	LCD_SetCursor(6,0);
+	LCD_SetCursor(5,0);
 	LCD_PutString("Sonic-Sensor-Distance:");
 	LCD_DrawRect(1,9,239,30);
 	
@@ -384,16 +414,15 @@ void DisplaySonicDistance(void){
 	bufferedPutString(distanceRight,2,2);
 	
 	uint16_t distanceMiddle = SonicGetDistanceMiddle();
-	bufferedPutString(distanceMiddle,8,2);
+	bufferedPutString(distanceMiddle,13,2);
 	
 	uint16_t distanceLeft = SonicGetDistanceLeft();
-	bufferedPutString(distanceLeft,14,2);
+	bufferedPutString(distanceLeft,25,2);
 	
 	LCD_SetCursor(7,7);
 	LCD_PutString("Kompass-Rotation:");
-	//LCD_DrawRect(1,9,239,30);
 	uint16_t rotation = CMPS14_GetHeading();
-	bufferedPutString(rotation/10,12,8);
+	bufferedPutString(rotation/10,13,8);
 	
 }
 	
