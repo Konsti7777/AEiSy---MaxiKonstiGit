@@ -11,7 +11,11 @@
 
 #define LCD_DATA_ADDR (*(volatile uint8_t*) 0x60000000)
 #define LCD_CMD_ADDR (*(volatile uint8_t*) 0x60000001)
-	
+
+#define LCD_WIDTH 240
+#define LCD_HEIGHT 128
+
+
 
 void DisplayInit(void){
 	//-------------RCC Register-------------
@@ -193,6 +197,52 @@ void LCD_SetPixel(uint8_t x, uint8_t y){
 		LCD_SetGraphicAddress(x,y);
 		LCD_Write_CMD(0xF8 | (7 - (x % 8)));
 }
+
+void LCD_DrawCircle(uint8_t cx, uint8_t cy, uint8_t radius)
+{
+	int16_t x = 0;
+	int16_t y = radius;
+	int16_t d = 1 - (int16_t)radius;
+
+	LCD_DrawCirclePoints((int16_t)cx, (int16_t)cy, x, y);
+
+	while (x < y)
+	{
+		x++;
+		if (d < 0)
+		{
+			d += (2 * x) + 1;
+		}
+		else
+		{
+			y--;
+			d += (2 * (x - y)) + 1;
+		}
+
+		LCD_DrawCirclePoints((int16_t)cx, (int16_t)cy, x, y);
+	}
+}
+
+static void LCD_SetPixelSafe(int16_t x, int16_t y)
+{
+	if ((x >= 0) && (x < LCD_WIDTH) && (y >= 0) && (y < LCD_HEIGHT))
+	{
+		LCD_SetPixel((uint8_t)x, (uint8_t)y);
+	}
+}
+
+static void LCD_DrawCirclePoints(int16_t cx, int16_t cy, int16_t x, int16_t y)
+{
+	LCD_SetPixelSafe(cx + x, cy + y);
+	LCD_SetPixelSafe(cx - x, cy + y);
+	LCD_SetPixelSafe(cx + x, cy - y);
+	LCD_SetPixelSafe(cx - x, cy - y);
+	LCD_SetPixelSafe(cx + y, cy + x);
+	LCD_SetPixelSafe(cx - y, cy + x);
+	LCD_SetPixelSafe(cx + y, cy - x);
+	LCD_SetPixelSafe(cx - y, cy - x);
+}
+	
 
 void LCD_DrawHLine(uint8_t x1, uint8_t x2, uint8_t y){
     for(uint8_t x = x1; x <= x2; x++){

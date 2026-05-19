@@ -19,6 +19,7 @@
 			void LCD_DrawHLine(uint8_t x1, uint8_t x2, uint8_t y);
 			void LCD_DrawVLine(uint8_t x, uint8_t y1, uint8_t y2);
 			void LCD_DrawRect(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2);
+			void LCD_DrawCircle(uint8_t cx, uint8_t cy, uint8_t radius);
 			void LCD_DrawBitmap(const char *picture);
 			void LCD_SetGraphicAddress(uint8_t x, uint8_t y);
 			void LCD_Clear(void);
