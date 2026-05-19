@@ -115,6 +115,7 @@ void DisplayInit(void){
 	LCD_DrawDashboard();
 	delayms(30000);
 	LCD_Clear();
+	LCD_ClearText();
 }
 
 static void Wait_Ready(void){
@@ -355,14 +356,14 @@ void LCD_DrawDashboard(void)
 {
     LCD_Clear();
     LCD_ClearText();
-
+		
     // oberer Rahmen
     LCD_DrawRect(5, 1, 234, 25);
     LCD_SetCursor(8, 1);       // Text: 30x16 Koordinaten
-    LCD_PutString("Autonomes Fahren");
+    LCD_PutString("Dashboard Test");
 
     // Kreis / Kompass
-    LCD_DrawCircle(27, 120, 55);
+    LCD_DrawCircle(116, 56, 30);
 
     LCD_SetCursor(14, 4);
     LCD_PutString("N");
@@ -394,14 +395,16 @@ void LCD_DrawDashboard(void)
     LCD_DrawHLine(68, 172, 108);
     LCD_DrawHLine(63, 177, 114);
 
-    LCD_SetCursor(1, 9);
-    LCD_PutString("5cm");
 
-    LCD_SetCursor(26, 9);
-    LCD_PutString("8cm");
-
-    LCD_SetCursor(13, 15);
-    LCD_PutString("5cm");
+		uint16_t distanceRight = SonicGetDistanceRight();
+		bufferedPutString(distanceRight,1,9);
+	
+		uint16_t distanceMiddle = SonicGetDistanceMiddle();
+		bufferedPutString(distanceMiddle,26,9);
+	
+		uint16_t distanceLeft = SonicGetDistanceLeft();
+		bufferedPutString(distanceLeft,13,15);
+	
 }
 	
 void DisplayHandler(EVENT_T currentEvent){

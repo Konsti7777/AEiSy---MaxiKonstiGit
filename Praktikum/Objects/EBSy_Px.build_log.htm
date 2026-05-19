@@ -27,14 +27,25 @@ Project File Date:  05/19/2026
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'AEiSy_Px'
-assembling startup_stm32g474xx.s...
 assembling delay.s...
+assembling startup_stm32g474xx.s...
 compiling Event.c...
 compiling LED.c...
 LED.c(24): warning:  #1-D: last line of file ends without a newline
   	}
 LED.c: 1 warning, 0 errors
-compiling CMPS14.c...
+compiling main.c...
+sonic.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+motor.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c: 2 warnings, 0 errors
+compiling Sonic.c...
+sonic.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+Sonic.c(139): warning:  #1-D: last line of file ends without a newline
+  }
+Sonic.c: 2 warnings, 0 errors
 compiling system_stm32g4xx.c...
 compiling motor.c...
 motor.h(16): warning:  #1-D: last line of file ends without a newline
@@ -42,42 +53,31 @@ motor.h(16): warning:  #1-D: last line of file ends without a newline
 motor.c(94): warning:  #1-D: last line of file ends without a newline
   }
 motor.c: 2 warnings, 0 errors
-compiling Sonic.c...
-sonic.h(19): warning:  #1-D: last line of file ends without a newline
-  #endif
-Sonic.c(139): warning:  #1-D: last line of file ends without a newline
-  }
-Sonic.c: 2 warnings, 0 errors
-compiling main.c...
-sonic.h(19): warning:  #1-D: last line of file ends without a newline
-  #endif
-motor.h(16): warning:  #1-D: last line of file ends without a newline
-  #endif
-main.c: 2 warnings, 0 errors
+compiling CMPS14.c...
 compiling Display.c...
 sonic.h(19): warning:  #1-D: last line of file ends without a newline
   #endif
-Assets/hs-logo.c(167): warning:  #1-D: last line of file ends without a newline
-  };
+Assets/hs-logo.c(130): warning:  #1-D: last line of file ends without a newline
+  };	
 Assets/dashboard-mockup.c(130): warning:  #1-D: last line of file ends without a newline
   };
-Display.c(35): warning:  #61-D: integer operation result is out of range
+Display.c(39): warning:  #61-D: integer operation result is out of range
   	GPIOD->AFR[1] |= (12<<(7*4));
-Display.c(35): warning:  #68-D: integer conversion resulted in a change of sign
+Display.c(39): warning:  #68-D: integer conversion resulted in a change of sign
   	GPIOD->AFR[1] |= (12<<(7*4));
-Display.c(50): warning:  #61-D: integer operation result is out of range
+Display.c(54): warning:  #61-D: integer operation result is out of range
   	GPIOE->AFR[0] |= (12<<(7*4));		
-Display.c(50): warning:  #68-D: integer conversion resulted in a change of sign
+Display.c(54): warning:  #68-D: integer conversion resulted in a change of sign
   	GPIOE->AFR[0] |= (12<<(7*4));		
-Display.c(80): warning:  #61-D: integer operation result is out of range
+Display.c(84): warning:  #61-D: integer operation result is out of range
   	GPIOD->AFR[0] |= (12<<(7*4));	
-Display.c(80): warning:  #68-D: integer conversion resulted in a change of sign
+Display.c(84): warning:  #68-D: integer conversion resulted in a change of sign
   	GPIOD->AFR[0] |= (12<<(7*4));	
-Display.c(89): warning:  #61-D: integer operation result is out of range
+Display.c(93): warning:  #61-D: integer operation result is out of range
   	FMC_Bank1_R->BTCR[1] = (3<<30) | (255<<8) | (15<<0);
 Display.c: 10 warnings, 0 errors
 linking...
-Program Size: Code=3976 RO-data=9284 RW-data=20 ZI-data=2436  
+Program Size: Code=4692 RO-data=8184 RW-data=20 ZI-data=2436  
 ".\Objects\EBSy_Px.axf" - 0 Error(s), 17 Warning(s).
 
 <h2>Software Packages used:</h2>
