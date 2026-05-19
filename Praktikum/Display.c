@@ -248,7 +248,7 @@ void LCD_DrawRect(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2){
     LCD_DrawVLine(x2, y1, y2); // rechts
 }
 
-void LCD_DrawBitmap(const uint8_t *picture){
+void LCD_DrawBitmap(const char *picture){
 	uint16_t addr = 0x0200;
 	LCD_Write_WORD(addr);
 	LCD_Write_CMD(0x24);

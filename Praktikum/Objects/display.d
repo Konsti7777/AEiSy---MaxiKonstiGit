@@ -15,3 +15,5 @@
 .\objects\display.o: cmps14.h
 .\objects\display.o: delay.h
 .\objects\display.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\display.o: Assets/hs-logo.c
+.\objects\display.o: Assets/dashboard-mockup.c
