@@ -112,7 +112,7 @@ void DisplayInit(void){
 
 	LCD_ClearText();
 	LCD_Clear();
-	LCD_DrawBitmap(DashImage);
+	LCD_DrawDashboard();
 	delayms(30000);
 	LCD_Clear();
 }
@@ -350,6 +350,58 @@ void DisplaySonicDistance(void){
 	uint16_t rotation = CMPS14_GetHeading();
 	bufferedPutString(rotation/10,13,8);
 	
+}
+void LCD_DrawDashboard(void)
+{
+    LCD_Clear();
+    LCD_ClearText();
+
+    // oberer Rahmen
+    LCD_DrawRect(5, 1, 234, 25);
+    LCD_SetCursor(8, 1);       // Text: 30x16 Koordinaten
+    LCD_PutString("Autonomes Fahren");
+
+    // Kreis / Kompass
+    LCD_DrawCircle(27, 120, 55);
+
+    LCD_SetCursor(14, 4);
+    LCD_PutString("N");
+    LCD_SetCursor(11, 6);
+    LCD_PutString("W");
+    LCD_SetCursor(17, 6);
+    LCD_PutString("E");
+    LCD_SetCursor(14, 8);
+    LCD_PutString("S");
+
+    // linke Linien
+    LCD_DrawLine(5, 36, 66, 106);
+    LCD_DrawLine(14, 36, 75, 106);
+    LCD_DrawLine(23, 36, 84, 106);
+    LCD_DrawLine(32, 36, 93, 106);
+    LCD_DrawLine(41, 36, 102, 106);
+
+    // rechte Linien
+    LCD_DrawLine(235, 36, 174, 106);
+    LCD_DrawLine(226, 36, 165, 106);
+    LCD_DrawLine(217, 36, 156, 106);
+    LCD_DrawLine(208, 36, 147, 106);
+    LCD_DrawLine(199, 36, 138, 106);
+
+    // untere Plattform
+    LCD_DrawHLine(82, 158, 90);
+    LCD_DrawHLine(78, 162, 96);
+    LCD_DrawHLine(73, 167, 102);
+    LCD_DrawHLine(68, 172, 108);
+    LCD_DrawHLine(63, 177, 114);
+
+    LCD_SetCursor(1, 9);
+    LCD_PutString("5cm");
+
+    LCD_SetCursor(26, 9);
+    LCD_PutString("8cm");
+
+    LCD_SetCursor(13, 15);
+    LCD_PutString("5cm");
 }
 	
 void DisplayHandler(EVENT_T currentEvent){
