@@ -222,6 +222,7 @@ void DisplayInit(void){
 	Set_Graphic_Init();
 	
 	
+	
 	LCD_Write_CMD(0x81);	//EXOR Mode
 	LCD_Write_CMD(0x9C);	//Display Mode: Text on, graphic on
 	//LCD_Write_CMD(0x94);//Display Mode: Text on, graphic off

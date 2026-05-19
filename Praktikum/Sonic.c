@@ -65,7 +65,7 @@ static uint16_t SonicReadSensor(uint8_t index)
     if (time == 0U) return 0U; /* no echo or too short */
 
     /* keep original crude conversion (loop ticks to cm) */
-    return (uint16_t)(time / 58U);
+    return (uint16_t)(time / 58U)*4;
 }
 
 /* Read next sensor in sequence (for backward compatibility) */
