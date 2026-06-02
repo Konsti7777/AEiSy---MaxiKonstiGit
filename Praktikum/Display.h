@@ -26,4 +26,5 @@
 			void LCD_DrawLine(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1);
 			static void LCD_DrawCirclePoints(int16_t cx, int16_t cy, int16_t x, int16_t y);
 			void LCD_DrawDashboard(void);
+			void LCD_ClearLine(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1);
 #endif  // _DISPLAY_H
