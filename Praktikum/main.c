@@ -69,7 +69,7 @@ void SysTick_Handler(){
 	systickms++;
 	if((systickms % 500) == 0){
 		SetEvent(EVT_500MS_EVT, 0U, 0UL);
-		
+		SetEvent(EVT_DISPLAY_SONIC_EVT, 0U, 0UL);
 		
 	}	
 	if ((systickms % 100) == 0)
@@ -77,10 +77,8 @@ void SysTick_Handler(){
         SetEvent(EVT_SONIC_EVT, 0U, 0UL);
 				SetEvent(EVT_FAHREN_EVT, 0U, 0UL);
     }
-	if ((systickms % 500) == 0)
-		SetEvent(EVT_DISPLAY_SONIC_EVT, 0U, 0UL);
-	}
 
+	}
 /* --------------  S t a r t    o f    p r o g r a m  -----------------  */
 
 

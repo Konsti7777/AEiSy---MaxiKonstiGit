@@ -112,10 +112,25 @@ void DisplayInit(void){
 
 	LCD_ClearText();
 	LCD_Clear();
-	LCD_DrawDashboard();
-	delayms(30000);
-	LCD_Clear();
-	LCD_ClearText();
+	//delayms(30000);
+
+	
+	    // oberer Rahmen
+    LCD_DrawRect(5, 1, 234, 25);
+    LCD_SetCursor(8, 1);       // Text: 30x16 Koordinaten
+    LCD_PutString("Dashboard Test");
+
+    // Kreis / Kompass
+    LCD_DrawCircle(116, 56, 30);
+
+    LCD_SetCursor(14, 4);
+    LCD_PutString("N");
+    LCD_SetCursor(11, 6);
+    LCD_PutString("W");
+    LCD_SetCursor(17, 6);
+    LCD_PutString("E");
+    LCD_SetCursor(14, 8);
+    LCD_PutString("S");
 }
 
 static void Wait_Ready(void){
@@ -354,32 +369,28 @@ void DisplaySonicDistance(void){
 }
 void LCD_DrawDashboard(void)
 {
-    LCD_Clear();
-    LCD_ClearText();
+
 		
-    // oberer Rahmen
-    LCD_DrawRect(5, 1, 234, 25);
-    LCD_SetCursor(8, 1);       // Text: 30x16 Koordinaten
-    LCD_PutString("Dashboard Test");
-
-    // Kreis / Kompass
-    LCD_DrawCircle(116, 56, 30);
-
-    LCD_SetCursor(14, 4);
-    LCD_PutString("N");
-    LCD_SetCursor(11, 6);
-    LCD_PutString("W");
-    LCD_SetCursor(17, 6);
-    LCD_PutString("E");
-    LCD_SetCursor(14, 8);
-    LCD_PutString("S");
-
+		uint16_t distanceRight = SonicGetDistanceRight();
+		bufferedPutString(distanceRight,1,9);
+	
+		uint16_t distanceMiddle = SonicGetDistanceMiddle();
+		bufferedPutString(distanceMiddle,26,9);
+	
+		uint16_t distanceLeft = SonicGetDistanceLeft();
+		bufferedPutString(distanceLeft,13,15);
+	
+	
     // linke Linien
-    LCD_DrawLine(5, 36, 66, 106);
-    LCD_DrawLine(14, 36, 75, 106);
-    LCD_DrawLine(23, 36, 84, 106);
-    LCD_DrawLine(32, 36, 93, 106);
-    LCD_DrawLine(41, 36, 102, 106);
+		if(distanceLeft >= 400){
+			LCD_DrawLine(5, 36, 66, 106);
+		}else if(distanceLeft >= 300){
+				LCD_DrawLine(14, 36, 75, 106);
+			}else if(distanceLeft >= 200){
+					LCD_DrawLine(32, 36, 93, 106);
+				} else if(distanceLeft >= 100){
+						LCD_DrawLine(41, 36, 102, 106);}
+
 
     // rechte Linien
     LCD_DrawLine(235, 36, 174, 106);
@@ -394,17 +405,6 @@ void LCD_DrawDashboard(void)
     LCD_DrawHLine(73, 167, 102);
     LCD_DrawHLine(68, 172, 108);
     LCD_DrawHLine(63, 177, 114);
-
-
-		uint16_t distanceRight = SonicGetDistanceRight();
-		bufferedPutString(distanceRight,1,9);
-	
-		uint16_t distanceMiddle = SonicGetDistanceMiddle();
-		bufferedPutString(distanceMiddle,26,9);
-	
-		uint16_t distanceLeft = SonicGetDistanceLeft();
-		bufferedPutString(distanceLeft,13,15);
-	
 }
 	
 void DisplayHandler(EVENT_T currentEvent){
@@ -417,7 +417,8 @@ void DisplayHandler(EVENT_T currentEvent){
 			case EVT_NOEVT:
 				break;
 			case EVT_DISPLAY_SONIC_EVT:
-				DisplaySonicDistance();
+				//DisplaySonicDistance();
+				LCD_DrawDashboard();
 				break;
 				default:
 						break;		

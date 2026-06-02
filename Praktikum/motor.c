@@ -84,7 +84,7 @@ void MotorHandler(EVENT_T event)
             //Motor_DriveForward(100);
 						//Motor_TurnCenteredClockwise(50);
 						//Motor_TurnCenteredCounterClockwise(50);
-            break; // Wichtig: Break fehlte hier!
+            break; 
 				case EVT_NOEVT:
 					break;
 
