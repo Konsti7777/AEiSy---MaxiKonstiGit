@@ -367,39 +367,81 @@ void DisplaySonicDistance(void){
 	bufferedPutString(rotation/10,13,8);
 	
 }
+void LCD_ClearLine(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1) {
+    int dx = abs(x1 - x0);
+    int sx = (x0 < x1) ? 1 : -1;
+    int dy = -abs(y1 - y0);
+    int sy = (y0 < y1) ? 1 : -1;
+    int err = dx + dy;
+    int e2;
+
+    while (1) {
+        // Hier nutzen wir den Clear-Pixel-Befehl statt Set-Pixel
+        LCD_SetGraphicAddress(x0, y0);
+        LCD_Write_CMD(0xF0 | (7 - (x0 % 8))); // 0xF0 löscht das Pixel
+
+        if (x0 == x1 && y0 == y1) break;
+        e2 = 2 * err;
+        if (e2 >= dy) { err += dy; x0 += sx; }
+        if (e2 <= dx) { err += dx; y0 += sy; }
+    }
+}
 void LCD_DrawDashboard(void)
 {
+    uint16_t distanceRight = SonicGetDistanceRight();
+    bufferedPutString(distanceRight, 1, 9);
 
-		
-		uint16_t distanceRight = SonicGetDistanceRight();
-		bufferedPutString(distanceRight,1,9);
-	
-		uint16_t distanceMiddle = SonicGetDistanceMiddle();
-		bufferedPutString(distanceMiddle,26,9);
-	
-		uint16_t distanceLeft = SonicGetDistanceLeft();
-		bufferedPutString(distanceLeft,13,15);
-	
-	
-    // linke Linien
-		if(distanceLeft >= 400){
-			LCD_DrawLine(5, 36, 66, 106);
-		}else if(distanceLeft >= 300){
-				LCD_DrawLine(14, 36, 75, 106);
-			}else if(distanceLeft >= 200){
-					LCD_DrawLine(32, 36, 93, 106);
-				} else if(distanceLeft >= 100){
-						LCD_DrawLine(41, 36, 102, 106);}
+    uint16_t distanceMiddle = SonicGetDistanceMiddle();
+    bufferedPutString(distanceMiddle, 26, 9);
 
+    uint16_t distanceLeft = SonicGetDistanceLeft();
+    bufferedPutString(distanceLeft, 13, 15);
 
-    // rechte Linien
+    // Statische Variablen behalten ihren Wert zwischen den Funktionsaufrufen
+    static int16_t last_x0 = -1, last_y0 = -1, last_x1 = -1, last_y1 = -1;
+
+    // 1. Bestimme die Koordinaten für die NEUE linke Linie basierend auf der Distanz
+    int16_t next_x0 = 0, next_y0 = 0, next_x1 = 0, next_y1 = 0;
+    uint8_t draw_line = 1; // Flag, ob überhaupt gezeichnet werden soll
+
+    if (distanceLeft >= 400) {
+        next_x0 = 5;  next_y0 = 36; next_x1 = 66; next_y1 = 106;
+    } else if (distanceLeft >= 300) {
+        next_x0 = 14; next_y0 = 36; next_x1 = 75; next_y1 = 106;
+    } else if (distanceLeft >= 200) {
+        next_x0 = 32; next_y0 = 36; next_x1 = 93; next_y1 = 106;
+    } else if (distanceLeft >= 100) {
+        next_x0 = 41; next_y0 = 36; next_x1 = 102; next_y1 = 106;
+    } else {
+        draw_line = 0; // Keine Linie bei unter 100
+    }
+
+    // 2. LÖSCHE die alte Linie (falls im vorherigen Schritt eine gezeichnet wurde)
+    if (last_x0 != -1) {
+        LCD_ClearLine(last_x0, last_y0, last_x1, last_y1);
+    }
+
+    // 3. ZEICHNE die neue Linie und merke dir die Koordinaten für das nächste Mal
+    if (draw_line) {
+        LCD_DrawLine(next_x0, next_y0, next_x1, next_y1);
+        last_x0 = next_x0;
+        last_y0 = next_y0;
+        last_x1 = next_x1;
+        last_y1 = next_y1;
+    } else {
+        // Zurücksetzen, wenn keine Linie aktiv ist
+        last_x0 = -1;
+    }
+
+    // --- RECHTE LINIEN & UNTERE PLATTFORM ---
+    // (Wenn diese auch dynamisch werden sollen, wende dasselbe Prinzip an. 
+    // Momentan werden sie bei jedem Aufruf einfach starr stumpf übereinander gezeichnet)
     LCD_DrawLine(235, 36, 174, 106);
     LCD_DrawLine(226, 36, 165, 106);
     LCD_DrawLine(217, 36, 156, 106);
     LCD_DrawLine(208, 36, 147, 106);
     LCD_DrawLine(199, 36, 138, 106);
 
-    // untere Plattform
     LCD_DrawHLine(82, 158, 90);
     LCD_DrawHLine(78, 162, 96);
     LCD_DrawHLine(73, 167, 102);
