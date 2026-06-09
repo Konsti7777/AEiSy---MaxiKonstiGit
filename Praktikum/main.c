@@ -99,7 +99,7 @@ int main(void) {
 		SonicHandler(currentEvent);
 		CmpsHandler(currentEvent);
 		MotorHandler(currentEvent);
-		//DriveHandler(currentEvent);
+		DriveHandler(currentEvent);
 	}
 		//delayms(500);
 

@@ -4,10 +4,11 @@
 #include "CMPS14.h"
 
 static uint16_t initialHeading;
-
 static uint8_t avoiding = 0;
-static uint32_t avoidTimer = 0;
-static uint8_t avoidDirection = 0; // 0 = links, 1 = rechts
+static uint32_t homingTimer = 0;
+uint16_t speed = 0;
+
+static uint16_t initialHeading;
 
 void driveInit(void){
 	
@@ -15,52 +16,49 @@ void driveInit(void){
 	
 }
 
-void move(uint16_t speed)
-{
-    // Hindernis wird aktuell umfahren
-    if(avoiding)
-    {
-        avoidTimer++;
-
-        if(avoidDirection == 0)
-        {
-            Motor_TurnCenteredCounterClockwise(20);
-        }
-        else
-        {
-            Motor_TurnCenteredClockwise(20);
-        }
-
-        // Nach ca. 2 Sekunden wieder gerade fahren
-        if(avoidTimer > 200)
-        {
-            avoiding = 0;
-            avoidTimer = 0;
-
-            Motor_DriveForward(speed);
-        }
-
-        return;
-    }
-
-    // Normalfahrt
-    Motor_DriveForward(speed);
-
-    if(SonicGetDistanceMiddle() < 300)
-    {
-        avoiding = 1;
-
-        if(SonicGetDistanceLeft() < SonicGetDistanceRight())
-        {
-            avoidDirection = 1; // rechts drehen
-        }
-        else
-        {
-            avoidDirection = 0; // links drehen
-        }
-    }
+uint16_t fixedOrientaion(uint16_t desiredOrientation){
+	uint16_t lasthead = ((initialHeading + desiredOrientation )%360);
+	return lasthead;
 }
+
+void homing(uint16_t richtung){
+		richtung = richtung / 10;
+		if(richtung >= fixedOrientaion(90) && richtung <= fixedOrientaion(270)){
+			homingTimer++;
+			
+			if(homingTimer > 200){
+				if(richtung>fixedOrientaion(180)){
+					Motor_TurnCenteredCounterClockwise(speed+20);
+				}else{
+					Motor_TurnCenteredClockwise(speed+20);
+				}
+
+			}
+		}
+		if(richtung == initialHeading){ 
+					homingTimer = 0; 
+					Motor_Stop();
+					return;
+				}
+}
+
+void move(uint16_t speed){
+			
 	
+		
+			//Motor_DriveForward(speed);
+			
+	/*		if ( 300 > SonicGetDistanceMiddle()){
+				if(SonicGetDistanceLeft() < SonicGetDistanceRight()){
+					Motor_TurnCenteredClockwise(speed+20);
+				}else{
+					Motor_TurnCenteredCounterClockwise(speed+20);
+				}
+			}*/
+			homing(CMPS14_GetHeading());
+			
+			
+}
 	
 	
 	
