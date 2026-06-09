@@ -401,14 +401,17 @@ typedef struct {
 
 void LCD_DrawDashboard(void)
 {
+		uint16_t rotation = CMPS14_GetHeading();
+		bufferedPutString(rotation/10,12,6);
+		
     // --- 1. SENSORWERTE ABFRAGEN & TEXT AUSGEBEN ---
     uint16_t distanceRight  = SonicGetDistanceRight();
     uint16_t distanceMiddle = SonicGetDistanceMiddle();
     uint16_t distanceLeft   = SonicGetDistanceLeft();
 
     bufferedPutString(distanceRight, 1, 9);
-    bufferedPutString(distanceMiddle, 26, 9);
-    bufferedPutString(distanceLeft, 13, 15);
+    bufferedPutString(distanceLeft, 26, 9);
+    bufferedPutString(distanceMiddle, 13, 15);
 
     // Statische Speicher für die jeweils ZULETZT gezeichneten Linien
     static LineCoords_t last_left  = {-1, 0, 0, 0};
@@ -423,26 +426,26 @@ void LCD_DrawDashboard(void)
     uint8_t draw_left = 1, draw_right = 1, draw_plat = 1;
 
     // --- 2. LOGIK: LINKE SEITE (Abstand Links) ---
-    if (distanceLeft >= 400)       { next_left = (LineCoords_t){5, 36, 66, 106}; }
-    else if (distanceLeft >= 300)  { next_left = (LineCoords_t){14, 36, 75, 106}; }
-    else if (distanceLeft >= 200)  { next_left = (LineCoords_t){32, 36, 93, 106}; }
-    else if (distanceLeft >= 100)  { next_left = (LineCoords_t){41, 36, 102, 106}; }
+    if (distanceRight >= 400)       { next_left = (LineCoords_t){5, 36, 66, 106}; }
+    else if (distanceRight >= 300)  { next_left = (LineCoords_t){14, 36, 75, 106}; }
+    else if (distanceRight >= 200)  { next_left = (LineCoords_t){32, 36, 93, 106}; }
+    else if (distanceRight >= 100)  { next_left = (LineCoords_t){41, 36, 102, 106}; }
     else                           { draw_left = 0; }
 
     // --- 3. LOGIK: RECHTE SEITE (Abstand Rechts) ---
-    if (distanceRight >= 400)      { next_right = (LineCoords_t){235, 36, 174, 106}; }
-    else if (distanceRight >= 300) { next_right = (LineCoords_t){226, 36, 165, 106}; }
-    else if (distanceRight >= 200) { next_right = (LineCoords_t){217, 36, 156, 106}; }
-    else if (distanceRight >= 100) { next_right = (LineCoords_t){208, 36, 147, 106}; }
+    if (distanceLeft >= 400)      { next_right = (LineCoords_t){235, 36, 174, 106}; }
+    else if (distanceLeft >= 300) { next_right = (LineCoords_t){226, 36, 165, 106}; }
+    else if (distanceLeft >= 200) { next_right = (LineCoords_t){217, 36, 156, 106}; }
+    else if (distanceLeft >= 100) { next_right = (LineCoords_t){208, 36, 147, 106}; }
     else                           { draw_right = 0; }
 
     // --- 4. LOGIK: UNTERE PLATTFORM (Abstand Mitte) ---
     // Hier wandert die Linie je nach Nähe weiter nach unten (näher an den Betrachter)
-    if (distanceMiddle >= 500)      { next_plat = (LineCoords_t){82, 0, 158, 90}; }
-    else if (distanceMiddle >= 400) { next_plat = (LineCoords_t){78, 0, 162, 96}; }
+    if (distanceMiddle >= 500)      { next_plat = (LineCoords_t){63, 0, 177, 114}; }
+    else if (distanceMiddle >= 400) { next_plat = (LineCoords_t){68, 0, 172, 108}; }
     else if (distanceMiddle >= 300) { next_plat = (LineCoords_t){73, 0, 167, 102}; }
-    else if (distanceMiddle >= 200) { next_plat = (LineCoords_t){68, 0, 172, 108}; }
-    else if (distanceMiddle >= 100) { next_plat = (LineCoords_t){63, 0, 177, 114}; }
+    else if (distanceMiddle >= 200) { next_plat = (LineCoords_t){78, 0, 162, 96}; }
+    else if (distanceMiddle >= 100) { next_plat = (LineCoords_t){82, 0, 158, 90}; }
     else                            { draw_plat = 0; }
 
 

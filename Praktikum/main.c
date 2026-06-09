@@ -50,6 +50,7 @@
 #include "sonic.h"
 #include "cmps14.h"
 #include "motor.h"
+#include "drive.h"
 
 /* ----------- V A R I A B L E S   &  C O N S T A N T S  --------------- */
 
@@ -98,6 +99,7 @@ int main(void) {
 		SonicHandler(currentEvent);
 		CmpsHandler(currentEvent);
 		MotorHandler(currentEvent);
+		//DriveHandler(currentEvent);
 	}
 		//delayms(500);
 
