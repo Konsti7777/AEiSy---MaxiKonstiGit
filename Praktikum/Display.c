@@ -404,8 +404,9 @@ void LCD_DrawDashboard(void)
 {
 		uint16_t rotation = CMPS14_GetHeading();
 		bufferedPutString(rotation/10,12,6);
-	
-		bufferedPutString(getInitialheading(),8,2);
+		
+		
+		bufferedPutString(getInitialheading(),11,2);
 		
     // --- 1. SENSORWERTE ABFRAGEN & TEXT AUSGEBEN ---
     uint16_t distanceRight  = SonicGetDistanceRight();

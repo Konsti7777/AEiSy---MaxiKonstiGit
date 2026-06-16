@@ -27,6 +27,8 @@ uint16_t getInitialheading(void){
 		return initialHeading;
 }
 
+
+
 void homing(uint16_t richtung){
 		richtung = richtung / 10;
 		if(richtung >= fixedOrientaion(90) && richtung <= fixedOrientaion(270)){
@@ -93,7 +95,20 @@ void move(uint16_t speed){
 			homing(CMPS14_GetHeading());
 			
 		
+		if (turnLeftCounter >= 10 || turnRightCounter >= 10)
+{
+    uint16_t diff = (turnLeftCounter > turnRightCounter)
+        ? (turnLeftCounter - turnRightCounter)
+        : (turnRightCounter - turnLeftCounter);
 
+    if (diff <= 4)
+    {
+        Motor_TurnCenteredClockwise(100);
+				delayms(100);
+    }
+		turnLeftCounter = 0;
+		turnRightCounter = 0;
+}
 }
 	
 	
