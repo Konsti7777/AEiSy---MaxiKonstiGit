@@ -86,6 +86,7 @@ void SysTick_Handler(){
 
 
 int main(void) {
+	delayms(200);
 	InitEventHandler();
   EVENT_T currentEvent;
 	SysTick_Config(SystemCoreClock / 1000);

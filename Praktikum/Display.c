@@ -8,6 +8,7 @@
 #include <stdlib.h> 
 #include "Assets/hs-logo.c"
 #include "Assets/dashboard-mockup.c"
+#include "drive.h"
 
 #define LCD_DATA_ADDR (*(volatile uint8_t*) 0x60000000)
 #define LCD_CMD_ADDR (*(volatile uint8_t*) 0x60000001)
@@ -119,10 +120,10 @@ void DisplayInit(void){
     LCD_DrawRect(5, 1, 234, 25);
     LCD_SetCursor(8, 1);       // Text: 30x16 Koordinaten
     LCD_PutString("Dashboard Test");
-
+		
     // Kreis / Kompass
     LCD_DrawCircle(116, 56, 30);
-
+		
     LCD_SetCursor(14, 4);
     LCD_PutString("N");
     LCD_SetCursor(11, 6);
@@ -403,6 +404,8 @@ void LCD_DrawDashboard(void)
 {
 		uint16_t rotation = CMPS14_GetHeading();
 		bufferedPutString(rotation/10,12,6);
+	
+		bufferedPutString(getInitialheading(),8,2);
 		
     // --- 1. SENSORWERTE ABFRAGEN & TEXT AUSGEBEN ---
     uint16_t distanceRight  = SonicGetDistanceRight();

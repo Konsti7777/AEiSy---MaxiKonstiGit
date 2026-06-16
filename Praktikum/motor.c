@@ -1,6 +1,8 @@
 #include "motor.h"
 #include "stm32g4xx.h"
 
+const int16_t toleranz = 16;
+
 void Motor_Init(void) {
     // 1. Clocks aktivieren: GPIOD und TIM4
     RCC->AHB2ENR |= RCC_AHB2ENR_GPIODEN;
@@ -37,35 +39,35 @@ void Motor_Init(void) {
 
 // Interne Hilfsfunktion
 void Motor_SetSpeed(uint8_t left, uint8_t right) {
-    TIM4->CCR1 = left;
-    TIM4->CCR2 = right;
+    TIM4->CCR1 = right;
+    TIM4->CCR2 = left;
 }
 
 void Motor_DriveForward(uint8_t speed) {
     // Beide Motoren Richtung "Vorwärts"
     GPIOD->BSRR = GPIO_BSRR_BS8 | GPIO_BSRR_BS10;
 		GPIOD->BSRR = GPIO_BSRR_BR9 | GPIO_BSRR_BR11;
-    Motor_SetSpeed(speed, speed);
+    Motor_SetSpeed(speed, speed+toleranz);
 }
 
 void Motor_DriveBackward(uint8_t speed) {
     // Beide Motoren Richtung "Rückwärts" (Reset Bits 14 & 15)
 		GPIOD->BSRR = GPIO_BSRR_BR8 | GPIO_BSRR_BR10;
     GPIOD->BSRR = GPIO_BSRR_BS9 | GPIO_BSRR_BS11;
-    Motor_SetSpeed(speed, speed);
+    Motor_SetSpeed(speed, speed+toleranz);
 }
 
 void Motor_TurnCenteredClockwise(uint8_t speed) {
 		GPIOD->BSRR = GPIO_BSRR_BR8 | GPIO_BSRR_BR11;
     GPIOD->BSRR = GPIO_BSRR_BS9 | GPIO_BSRR_BS10;
-    Motor_SetSpeed(speed, speed); 
+    Motor_SetSpeed(speed, speed+toleranz); 
 	
 }
 
 void Motor_TurnCenteredCounterClockwise(uint8_t speed) {
 		GPIOD->BSRR = GPIO_BSRR_BS8 | GPIO_BSRR_BS11;
     GPIOD->BSRR = GPIO_BSRR_BR9 | GPIO_BSRR_BR10;
-    Motor_SetSpeed(speed, speed);
+    Motor_SetSpeed(speed, speed+toleranz);
 }
 
 void Motor_Stop(void) {

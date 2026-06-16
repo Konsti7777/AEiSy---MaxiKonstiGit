@@ -8,9 +8,9 @@ static uint8_t sonic_pins[3] = {7, 8, 9};
 static uint8_t current_sensor = 0;
 
 /* Separate storage for left (0), middle (1), right (2) sensors */
-static uint16_t lastDistanceLeft = 0;
-static uint16_t lastDistanceMiddle = 0;
-static uint16_t lastDistanceRight = 0;
+static uint16_t lastDistanceLeft = 1000;
+static uint16_t lastDistanceMiddle = 1000;
+static uint16_t lastDistanceRight = 1000;
 
 void SonicInit(void)
 {
