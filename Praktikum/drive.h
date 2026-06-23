@@ -9,4 +9,5 @@ void driveInit(void);
 void move(uint16_t speed);
 uint16_t fixedOrientaion(uint16_t desiredOrientation);
 uint16_t getInitialheading(void);
+char DriveGetModeIndicator(void);
 #endif

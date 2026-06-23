@@ -11,11 +11,17 @@ uint16_t speed = 0;
 static _Bool inhoming = 0;
 static uint16_t turnLeftCounter = 0;
 static uint16_t turnRightCounter = 0;
+static char driveModeIndicator = 'D';
 
 void driveInit(void){
 	
 	initialHeading = CMPS14_GetHeading()/10;
+	driveModeIndicator = 'D';
 	
+}
+
+char DriveGetModeIndicator(void){
+	return driveModeIndicator;
 }
 
 uint16_t fixedOrientaion(uint16_t desiredOrientation){
@@ -31,6 +37,7 @@ uint16_t getInitialheading(void){
 
 void homing(uint16_t richtung){
 		richtung = richtung / 10;
+		driveModeIndicator = 'H';
 		if(richtung >= fixedOrientaion(90) && richtung <= fixedOrientaion(270)){
 			homingTimer++;
 			
@@ -48,6 +55,7 @@ void homing(uint16_t richtung){
 					homingTimer = 0; 
 					//Motor_Stop();
 					inhoming = 0;
+					driveModeIndicator = 'D';
 					return;
 				}
 }
@@ -56,6 +64,7 @@ void homing(uint16_t richtung){
 void targeting(uint16_t richtung){
 		richtung = richtung/10;
 		targetTimer++;
+		driveModeIndicator = 'T';
 	if(SonicGetDistanceLeft() > 300 && SonicGetDistanceMiddle() > 300 && SonicGetDistanceRight() > 300 && targetTimer > 10){
 		if(richtung < initialHeading-2 || richtung > initialHeading+2){
 		if(richtung > initialHeading){
@@ -75,8 +84,10 @@ void targeting(uint16_t richtung){
 void move(uint16_t speed){
 			
 			if(!inhoming){
+				driveModeIndicator = 'D';
 				Motor_DriveForward(speed);
 			if ( SonicGetDistanceMiddle() < 300 ||SonicGetDistanceLeft() <= 150||SonicGetDistanceRight() <= 150){
+					driveModeIndicator = 'O';
 				if(SonicGetDistanceLeft() < SonicGetDistanceRight()){
 					Motor_TurnCenteredClockwise(speed+20);
 					//delayms(100);

@@ -123,6 +123,8 @@ void DisplayInit(void){
 		
     // Kreis / Kompass
     LCD_DrawCircle(116, 56, 30);
+	LCD_SetCursor(28, 0);
+	LCD_PutChar(DriveGetModeIndicator());
 		
     LCD_SetCursor(14, 4);
     LCD_PutString("N");
@@ -275,7 +277,7 @@ void LCD_DrawVLine(uint8_t x, uint8_t y1, uint8_t y2){
 
 
 void LCD_DrawLine(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)
-{
+{ //Bresenham-Algorithmus
     int dx = abs(x1 - x0);
     int sx = (x0 < x1) ? 1 : -1;
 
@@ -407,6 +409,8 @@ void LCD_DrawDashboard(void)
 		
 		
 		bufferedPutString(getInitialheading(),11,2);
+		LCD_SetCursor(28, 0);
+		LCD_PutChar(DriveGetModeIndicator());
 		
     // --- 1. SENSORWERTE ABFRAGEN & TEXT AUSGEBEN ---
     uint16_t distanceRight  = SonicGetDistanceRight();
