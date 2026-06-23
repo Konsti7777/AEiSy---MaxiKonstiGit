@@ -8,6 +8,7 @@
 #include <stdlib.h> 
 #include "Assets/hs-logo.c"
 #include "Assets/dashboard-mockup.c"
+#include "Assets/eyes.c"
 #include "drive.h"
 
 #define LCD_DATA_ADDR (*(volatile uint8_t*) 0x60000000)
@@ -134,7 +135,9 @@ void DisplayInit(void){
     LCD_PutString("E");
     LCD_SetCursor(14, 8);
     LCD_PutString("S");
-}
+		
+		
+		}
 
 static void Wait_Ready(void){
 	while((readStatus() & 0x03) != 0x03){}
@@ -404,6 +407,8 @@ typedef struct {
 
 void LCD_DrawDashboard(void)
 {
+
+
 		uint16_t rotation = CMPS14_GetHeading();
 		bufferedPutString(rotation/10,12,6);
 		
@@ -486,6 +491,8 @@ void LCD_DrawDashboard(void)
         LCD_DrawHLine(next_plat.x0, next_plat.x1, next_plat.y1);
         last_plat = next_plat;
     } else { last_plat.x0 = -1; }
+		
+
 }
 	
 void DisplayHandler(EVENT_T currentEvent){
@@ -500,6 +507,8 @@ void DisplayHandler(EVENT_T currentEvent){
 			case EVT_DISPLAY_SONIC_EVT:
 				//DisplaySonicDistance();
 				LCD_DrawDashboard();
+			
+
 				break;
 				default:
 						break;		

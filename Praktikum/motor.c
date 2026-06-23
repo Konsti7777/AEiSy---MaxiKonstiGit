@@ -1,7 +1,7 @@
 #include "motor.h"
 #include "stm32g4xx.h"
 
-const int16_t toleranz = 16;
+const int16_t toleranz = 14; //14
 
 void Motor_Init(void) {
     // 1. Clocks aktivieren: GPIOD und TIM4
