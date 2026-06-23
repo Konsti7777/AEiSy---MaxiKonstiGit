@@ -36,10 +36,18 @@ uint16_t getInitialheading(void){
 }
 
 
+static _Bool headingInRange(uint16_t heading, uint16_t start, uint16_t end){
+		if(start <= end){
+			return (heading >= start) && (heading <= end);
+		}
+		return (heading >= start) || (heading <= end);
+}
+
+
 
 void homing(uint16_t richtung){
 		richtung = richtung / 10;
-		if(richtung >= fixedOrientaion(90) && richtung <= fixedOrientaion(270)){
+		if(headingInRange(richtung, fixedOrientaion(90), fixedOrientaion(270))){
 			homingTimer++;
 			
 			if(homingTimer > 100){
@@ -53,7 +61,7 @@ void homing(uint16_t richtung){
 				return;
 			}
 		}
-		if(richtung > initialHeading-3 && richtung < initialHeading+3){
+		if(headingInRange(richtung, (initialHeading + 360 - 3) % 360, (initialHeading + 3) % 360)){
 					homingTimer = 0; 
 					//Motor_Stop();
 					inhoming = 0;
