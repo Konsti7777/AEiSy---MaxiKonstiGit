@@ -124,7 +124,7 @@ void DisplayInit(void){
     // Kreis / Kompass
     LCD_DrawCircle(116, 56, 30);
 	LCD_SetCursor(28, 0);
-	LCD_PutChar(DriveGetModeIndicator());
+
 		
     LCD_SetCursor(14, 4);
     LCD_PutString("N");
@@ -409,7 +409,7 @@ void LCD_DrawDashboard(void)
 		
 		
 		bufferedPutString(getInitialheading(),11,2);
-		LCD_SetCursor(28, 0);
+		LCD_SetCursor(27, 1);
 		LCD_PutChar(DriveGetModeIndicator());
 		
     // --- 1. SENSORWERTE ABFRAGEN & TEXT AUSGEBEN ---

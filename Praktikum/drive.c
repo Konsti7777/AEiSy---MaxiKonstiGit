@@ -12,6 +12,8 @@ static _Bool inhoming = 0;
 static uint16_t turnLeftCounter = 0;
 static uint16_t turnRightCounter = 0;
 static char driveModeIndicator = 'D';
+static _Bool wiggle = 0;
+static int wiggleTimer = 0;
 
 void driveInit(void){
 	
@@ -37,21 +39,21 @@ uint16_t getInitialheading(void){
 
 void homing(uint16_t richtung){
 		richtung = richtung / 10;
-		driveModeIndicator = 'H';
 		if(richtung >= fixedOrientaion(90) && richtung <= fixedOrientaion(270)){
 			homingTimer++;
 			
 			if(homingTimer > 100){
+				driveModeIndicator = 'H';
 				inhoming = 1;
 				if(richtung>fixedOrientaion(180)){
 					Motor_TurnCenteredClockwise(30);
 				}else{
 					Motor_TurnCenteredCounterClockwise(30);
 				}
-
+				return;
 			}
 		}
-		if(richtung == initialHeading){ 
+		if(richtung > initialHeading-3 && richtung < initialHeading+3){
 					homingTimer = 0; 
 					//Motor_Stop();
 					inhoming = 0;
@@ -82,9 +84,9 @@ void targeting(uint16_t richtung){
 
 
 void move(uint16_t speed){
-			
+			if(!wiggle){
 			if(!inhoming){
-				driveModeIndicator = 'D';
+				//driveModeIndicator = 'D';
 				Motor_DriveForward(speed);
 			if ( SonicGetDistanceMiddle() < 300 ||SonicGetDistanceLeft() <= 150||SonicGetDistanceRight() <= 150){
 					driveModeIndicator = 'O';
@@ -104,7 +106,7 @@ void move(uint16_t speed){
 		}
 			
 			homing(CMPS14_GetHeading());
-			
+	}	
 		
 		if (turnLeftCounter >= 10 || turnRightCounter >= 10)
 {
@@ -114,12 +116,23 @@ void move(uint16_t speed){
 
     if (diff <= 4)
     {
-        Motor_TurnCenteredClockwise(100);
-				delayms(100);
+        Motor_TurnCenteredCounterClockwise(100);
+				wiggle = 1;
     }
 		turnLeftCounter = 0;
 		turnRightCounter = 0;
 }
+
+	if (wiggle){
+		for(int i = 0; i<1000000; i++){
+			driveModeIndicator = 'W';
+			wiggleTimer++;
+		}
+		if (wiggleTimer >= 1000000){
+			wiggle = 0;
+		}
+	}
+		
 }
 	
 	
