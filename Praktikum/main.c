@@ -95,10 +95,10 @@ int main(void) {
 	while(1)
 	{
 		currentEvent = GetEvent();
-		//LedHandler(currentEvent);
-		DisplayHandler(currentEvent);
+		LedHandler(currentEvent);
 		SonicHandler(currentEvent);
 		CmpsHandler(currentEvent);
+		DisplayHandler(currentEvent);
 		MotorHandler(currentEvent);
 		DriveHandler(currentEvent);
 	}

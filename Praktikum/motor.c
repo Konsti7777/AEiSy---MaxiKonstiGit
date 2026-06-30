@@ -24,7 +24,7 @@ void Motor_Init(void) {
 
     // 3. TIM4 Konfiguration (48 MHz Systemtakt)
     TIM4->PSC = 48 - 1;          // Timer-Frequenz = 1 MHz
-    TIM4->ARR = 100 - 1;         // 100 Schritte -> 10 kHz PWM-Frequenz
+    TIM4->ARR = 50 - 1;         // 100 Schritte -> 10 kHz PWM-Frequenz
 
     // PWM Mode 1 für Channel 1 und Channel 2
     TIM4->CCMR1 |= (6 << TIM_CCMR1_OC1M_Pos) | (6 << TIM_CCMR1_OC2M_Pos);

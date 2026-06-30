@@ -3,6 +3,9 @@
 #include "sonic.h"
 #include "CMPS14.h"
 #include "delay.h"
+#include "led.h"
+#include <stm32g4xx.h>
+
 
 static uint16_t initialHeading;
 static uint8_t targetTimer = 0;
@@ -20,6 +23,13 @@ void driveInit(void){
 	initialHeading = CMPS14_GetHeading()/10;
 	driveModeIndicator = 'D';
 	
+}
+
+static int16_t CmpsDifferenzUeberlauf(int16_t from, int16_t to){
+	int16_t delta = (int16_t)to - (int16_t) from;
+	if(delta>180) delta -=360;
+	if(delta< -180) delta += 360;
+	return delta;
 }
 
 char DriveGetModeIndicator(void){
@@ -63,9 +73,9 @@ void homing(uint16_t richtung){
 		}
 		if(headingInRange(richtung, (initialHeading + 360 - 3) % 360, (initialHeading + 3) % 360)){
 					homingTimer = 0; 
-					//Motor_Stop();
+					Motor_DriveForward(100);
 					inhoming = 0;
-					driveModeIndicator = 'D';
+					//driveModeIndicator = 'D';
 					return;
 				}
 }
@@ -74,10 +84,24 @@ void homing(uint16_t richtung){
 void targeting(uint16_t richtung){
 		richtung = richtung/10;
 		targetTimer++;
-		driveModeIndicator = 'T';
-	if(SonicGetDistanceLeft() > 300 && SonicGetDistanceMiddle() > 300 && SonicGetDistanceRight() > 300 && targetTimer > 10){
-		if(richtung < initialHeading-2 || richtung > initialHeading+2){
-		if(richtung > initialHeading){
+	if(headingInRange(richtung, fixedOrientaion(90), fixedOrientaion(270))){
+		if(SonicGetDistanceLeft() > 300 && SonicGetDistanceMiddle() > 300 && SonicGetDistanceRight() > 300 && targetTimer > 20){
+		if(CmpsDifferenzUeberlauf(initialHeading, richtung) < -2 || CmpsDifferenzUeberlauf(initialHeading, richtung) > 2){
+			GPIOE->ODR ^=GPIO_ODR_OD11;
+			driveModeIndicator = 'S';
+		if(CmpsDifferenzUeberlauf(initialHeading, richtung)>0){
+			Motor_TurnCenteredCounterClockwise(20);
+				}else{
+				Motor_TurnCenteredClockwise(20);	
+				}
+			}
+		targetTimer = 0;
+		
+	}
+	}else if(SonicGetDistanceLeft() > 300 && SonicGetDistanceMiddle() > 300 && SonicGetDistanceRight() > 300 && targetTimer > 20){
+		if(CmpsDifferenzUeberlauf(initialHeading, richtung) < -2 || CmpsDifferenzUeberlauf(initialHeading, richtung) > 2){
+			driveModeIndicator = 'T';
+		if(CmpsDifferenzUeberlauf(initialHeading, richtung)>0){
 				Motor_TurnCenteredCounterClockwise(20);
 				}else{
 					Motor_TurnCenteredClockwise(20);
@@ -86,7 +110,6 @@ void targeting(uint16_t richtung){
 		targetTimer = 0;
 		
 	}
-	
 }
 
 
@@ -99,13 +122,13 @@ void move(uint16_t speed){
 			if ( SonicGetDistanceMiddle() < 300 ||SonicGetDistanceLeft() <= 150||SonicGetDistanceRight() <= 150){
 					driveModeIndicator = 'O';
 				if(SonicGetDistanceLeft() < SonicGetDistanceRight()){
-					Motor_TurnCenteredClockwise(speed+20);
-					//delayms(100);
+					Motor_TurnCenteredClockwise(speed-20);
+					delayms(100);
 					turnRightCounter++;
 					targetTimer=0;
 				}else{
-					Motor_TurnCenteredCounterClockwise(speed+20);
-					//delayms(100);
+					Motor_TurnCenteredCounterClockwise(speed-20);
+					delayms(100);
 					turnLeftCounter++;
 					targetTimer=0;
 				}
@@ -157,7 +180,7 @@ void DriveHandler(EVENT_T event)
 
         case EVT_FAHREN_EVT:
 						
-					move(80);
+					move(100);
 						
             //Motor_DriveForward(100);
 						//Motor_TurnCenteredClockwise(50);

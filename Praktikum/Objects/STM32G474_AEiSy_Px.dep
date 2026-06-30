@@ -1,6 +1,6 @@
 Dependencies for Project 'STM32G474', Target 'AEiSy_Px': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x6A1EC9FA)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x6A43C506)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
@@ -18,13 +18,14 @@ I (Display.h)(0x6A1EEBE2)
 I (sonic.h)(0x6A033998)
 I (cmps14.h)(0x6A033463)
 I (motor.h)(0x6A0C559F)
+I (drive.h)(0x6A43C915)
 F (.\delay.s)(0x69CBC607)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include--pd "__UVISION_VERSION SETA 536" --pd "STM32G474xx SETA 1"--list .\listings\delay.lst --xref -o .\objects\delay.o --depend .\objects\delay.d)
 F (.\delay.h)(0x69CBC607)()
 F (.\Event.c)(0x69CBE17A)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\event.o --omf_browse .\objects\event.crf --depend .\objects\event.d)
 I (event.h)(0x6A0C559F)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
 F (.\Event.h)(0x6A0C559F)()
-F (.\LED.c)(0x69DE4227)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
+F (.\LED.c)(0x6A43C506)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
 I (LED.h)(0x69DE3622)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
 I (Event.h)(0x6A0C559F)
@@ -36,7 +37,7 @@ I (.\CMSIS\cmsis_compiler.h)(0x69CBC607)
 I (.\CMSIS\cmsis_armcc.h)(0x69CBC607)
 I (.\CMSIS\mpu_armv7.h)(0x69CBC607)
 F (.\LED.h)(0x69DE3622)()
-F (.\Display.c)(0x6A1EEAAB)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\display.o --omf_browse .\objects\display.crf --depend .\objects\display.d)
+F (.\Display.c)(0x6A3AA082)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\display.o --omf_browse .\objects\display.crf --depend .\objects\display.d)
 I (Display.h)(0x6A1EEBE2)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
 I (Event.h)(0x6A0C559F)
@@ -54,8 +55,11 @@ I (delay.h)(0x69CBC607)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602577D4)
 I (Assets/hs-logo.c)(0x6A0C7146)
 I (Assets/dashboard-mockup.c)(0x6A0C6F15)
+I (Assets/eyes.c)(0x6A3A9DF3)
+I (drive.h)(0x6A43C915)
+I (motor.h)(0x6A0C559F)
 F (.\Display.h)(0x6A1EEBE2)()
-F (.\Sonic.c)(0x6A1EE859)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\sonic.o --omf_browse .\objects\sonic.crf --depend .\objects\sonic.d)
+F (.\Sonic.c)(0x6A315A2F)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\sonic.o --omf_browse .\objects\sonic.crf --depend .\objects\sonic.d)
 I (sonic.h)(0x6A033998)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
 I (Event.h)(0x6A0C559F)
@@ -80,7 +84,7 @@ I (.\CMSIS\cmsis_version.h)(0x69CBC607)
 I (.\CMSIS\cmsis_compiler.h)(0x69CBC607)
 I (.\CMSIS\cmsis_armcc.h)(0x69CBC607)
 I (.\CMSIS\mpu_armv7.h)(0x69CBC607)
-F (.\motor.c)(0x6A1EEA4B)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\motor.o --omf_browse .\objects\motor.crf --depend .\objects\motor.d)
+F (.\motor.c)(0x6A3AA1BD)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\motor.o --omf_browse .\objects\motor.crf --depend .\objects\motor.d)
 I (motor.h)(0x6A0C559F)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
 I (event.h)(0x6A0C559F)
@@ -92,6 +96,23 @@ I (.\CMSIS\cmsis_compiler.h)(0x69CBC607)
 I (.\CMSIS\cmsis_armcc.h)(0x69CBC607)
 I (.\CMSIS\mpu_armv7.h)(0x69CBC607)
 F (.\motor.h)(0x6A0C559F)()
+F (.\drive.c)(0x6A43D14C)(--c99 --gnu -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\System -I .\CMSIS -I .\System-IC:\Keil_v5\Keil\STM32G4xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="536" -DSTM32G474xx-o .\objects\drive.o --omf_browse .\objects\drive.crf --depend .\objects\drive.d)
+I (drive.h)(0x6A43C915)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
+I (event.h)(0x6A0C559F)
+I (motor.h)(0x6A0C559F)
+I (sonic.h)(0x6A033998)
+I (CMPS14.h)(0x6A033463)
+I (delay.h)(0x69CBC607)
+I (led.h)(0x69DE3622)
+I (.\System\stm32g4xx.h)(0x69CBC607)
+I (.\System\stm32g474xx.h)(0x69CBC607)
+I (.\CMSIS\core_cm4.h)(0x69CBC607)
+I (.\CMSIS\cmsis_version.h)(0x69CBC607)
+I (.\CMSIS\cmsis_compiler.h)(0x69CBC607)
+I (.\CMSIS\cmsis_armcc.h)(0x69CBC607)
+I (.\CMSIS\mpu_armv7.h)(0x69CBC607)
+F (.\drive.h)(0x6A43C915)()
 F (.\System\stm32g4xx.h)(0x69CBC607)()
 F (.\System\STM32G4xx_REG_ASM.inc)(0x69CBC607)()
 F (.\System\stm32g474xx.h)(0x69CBC607)()

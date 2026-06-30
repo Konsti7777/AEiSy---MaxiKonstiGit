@@ -12,7 +12,7 @@ void LedHandler(EVENT_T currentEvent){
 			switch(currentEvent.EventID)
 			{ 
 			case EVT_500MS_EVT:
-				GPIOE->ODR ^=GPIO_ODR_OD11;
+				//GPIOE->ODR ^=GPIO_ODR_OD11;
 			case EVT_INIT_EVT:
 				LedInit();
 			case EVT_NOEVT:

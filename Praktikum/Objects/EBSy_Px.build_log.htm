@@ -22,17 +22,46 @@ Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
 C:\Users\max2184s\Desktop\AEiSy---MaxiKonstiGit\Praktikum\STM32G474.uvprojx
-Project File Date:  05/19/2026
+Project File Date:  06/09/2026
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Build target 'AEiSy_Px'
+Rebuild target 'AEiSy_Px'
+compiling Event.c...
+assembling delay.s...
+assembling startup_stm32g474xx.s...
+compiling drive.c...
+motor.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif
+drive.h(14): warning:  #1-D: last line of file ends without a newline
+  #endif
+sonic.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+drive.c(195): warning:  #1-D: last line of file ends without a newline
+  }
+drive.c: 4 warnings, 0 errors
+compiling motor.c...
+motor.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif
+motor.c(96): warning:  #1-D: last line of file ends without a newline
+  }
+motor.c: 2 warnings, 0 errors
+compiling system_stm32g4xx.c...
+compiling Sonic.c...
+sonic.h(19): warning:  #1-D: last line of file ends without a newline
+  #endif
+Sonic.c(139): warning:  #1-D: last line of file ends without a newline
+  }
+Sonic.c: 2 warnings, 0 errors
+compiling CMPS14.c...
 compiling main.c...
 sonic.h(19): warning:  #1-D: last line of file ends without a newline
   #endif
 motor.h(16): warning:  #1-D: last line of file ends without a newline
   #endif
-main.c: 2 warnings, 0 errors
+drive.h(14): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c: 3 warnings, 0 errors
 compiling Display.c...
 sonic.h(19): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -40,24 +69,34 @@ Assets/hs-logo.c(130): warning:  #1-D: last line of file ends without a newline
   };	
 Assets/dashboard-mockup.c(130): warning:  #1-D: last line of file ends without a newline
   };
-Display.c(39): warning:  #61-D: integer operation result is out of range
+Assets/eyes.c(143): warning:  #1-D: last line of file ends without a newline
+  };
+motor.h(16): warning:  #1-D: last line of file ends without a newline
+  #endif
+drive.h(14): warning:  #1-D: last line of file ends without a newline
+  #endif
+Display.c(41): warning:  #61-D: integer operation result is out of range
   	GPIOD->AFR[1] |= (12<<(7*4));
-Display.c(39): warning:  #68-D: integer conversion resulted in a change of sign
+Display.c(41): warning:  #68-D: integer conversion resulted in a change of sign
   	GPIOD->AFR[1] |= (12<<(7*4));
-Display.c(54): warning:  #61-D: integer operation result is out of range
+Display.c(56): warning:  #61-D: integer operation result is out of range
   	GPIOE->AFR[0] |= (12<<(7*4));		
-Display.c(54): warning:  #68-D: integer conversion resulted in a change of sign
+Display.c(56): warning:  #68-D: integer conversion resulted in a change of sign
   	GPIOE->AFR[0] |= (12<<(7*4));		
-Display.c(84): warning:  #61-D: integer operation result is out of range
+Display.c(86): warning:  #61-D: integer operation result is out of range
   	GPIOD->AFR[0] |= (12<<(7*4));	
-Display.c(84): warning:  #68-D: integer conversion resulted in a change of sign
+Display.c(86): warning:  #68-D: integer conversion resulted in a change of sign
   	GPIOD->AFR[0] |= (12<<(7*4));	
-Display.c(93): warning:  #61-D: integer operation result is out of range
+Display.c(95): warning:  #61-D: integer operation result is out of range
   	FMC_Bank1_R->BTCR[1] = (3<<30) | (255<<8) | (15<<0);
-Display.c: 10 warnings, 0 errors
+Display.c: 13 warnings, 0 errors
+compiling LED.c...
+LED.c(24): warning:  #1-D: last line of file ends without a newline
+  	}
+LED.c: 1 warning, 0 errors
 linking...
-Program Size: Code=5092 RO-data=8288 RW-data=44 ZI-data=2436  
-".\Objects\EBSy_Px.axf" - 0 Error(s), 12 Warning(s).
+Program Size: Code=6496 RO-data=12520 RW-data=68 ZI-data=2436  
+".\Objects\EBSy_Px.axf" - 0 Error(s), 25 Warning(s).
 
 <h2>Software Packages used:</h2>
 

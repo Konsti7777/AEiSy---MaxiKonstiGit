@@ -1,0 +1,17 @@
+.\objects\drive.o: drive.c
+.\objects\drive.o: drive.h
+.\objects\drive.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\drive.o: event.h
+.\objects\drive.o: motor.h
+.\objects\drive.o: sonic.h
+.\objects\drive.o: CMPS14.h
+.\objects\drive.o: delay.h
+.\objects\drive.o: led.h
+.\objects\drive.o: .\System\stm32g4xx.h
+.\objects\drive.o: .\System\stm32g474xx.h
+.\objects\drive.o: .\CMSIS\core_cm4.h
+.\objects\drive.o: .\CMSIS\cmsis_version.h
+.\objects\drive.o: .\CMSIS\cmsis_compiler.h
+.\objects\drive.o: .\CMSIS\cmsis_armcc.h
+.\objects\drive.o: .\CMSIS\mpu_armv7.h
+.\objects\drive.o: .\System\stm32g4xx.h
