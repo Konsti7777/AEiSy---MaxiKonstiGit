@@ -1775,7 +1775,7 @@
         <RecentRowIndex>1</RecentRowIndex>
         <RectRecentDocked>
           <Len>16</Len>
-          <Data>1D0000001C0000000402000038000000</Data>
+          <Data>260000001C0000000D02000038000000</Data>
         </RectRecentDocked>
         <RectRecentFloat>
           <Len>16</Len>
@@ -3758,7 +3758,7 @@
       <Doc>
         <Name>.\main.c</Name>
         <ColumnNumber>4</ColumnNumber>
-        <TopLine>63</TopLine>
+        <TopLine>48</TopLine>
         <CurrentLine>98</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
@@ -3820,8 +3820,8 @@
       </Doc>
       <Doc>
         <Name>.\motor.c</Name>
-        <ColumnNumber>17</ColumnNumber>
-        <TopLine>1</TopLine>
+        <ColumnNumber>19</ColumnNumber>
+        <TopLine>50</TopLine>
         <CurrentLine>27</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
@@ -3874,9 +3874,9 @@
       </Doc>
       <Doc>
         <Name>.\drive.c</Name>
-        <ColumnNumber>1</ColumnNumber>
+        <ColumnNumber>18</ColumnNumber>
         <TopLine>149</TopLine>
-        <CurrentLine>173</CurrentLine>
+        <CurrentLine>183</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
