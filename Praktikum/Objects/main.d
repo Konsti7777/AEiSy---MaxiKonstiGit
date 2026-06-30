@@ -13,3 +13,8 @@
 .\objects\main.o: delay.h
 .\objects\main.o: Event.h
 .\objects\main.o: LED.h
+.\objects\main.o: Display.h
+.\objects\main.o: sonic.h
+.\objects\main.o: cmps14.h
+.\objects\main.o: motor.h
+.\objects\main.o: drive.h

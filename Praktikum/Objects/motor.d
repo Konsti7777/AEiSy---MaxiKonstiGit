@@ -1,0 +1,12 @@
+.\objects\motor.o: motor.c
+.\objects\motor.o: motor.h
+.\objects\motor.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\motor.o: event.h
+.\objects\motor.o: .\System\stm32g4xx.h
+.\objects\motor.o: .\System\stm32g474xx.h
+.\objects\motor.o: .\CMSIS\core_cm4.h
+.\objects\motor.o: .\CMSIS\cmsis_version.h
+.\objects\motor.o: .\CMSIS\cmsis_compiler.h
+.\objects\motor.o: .\CMSIS\cmsis_armcc.h
+.\objects\motor.o: .\CMSIS\mpu_armv7.h
+.\objects\motor.o: .\System\stm32g4xx.h

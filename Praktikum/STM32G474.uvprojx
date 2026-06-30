@@ -418,6 +418,56 @@
               <FileType>5</FileType>
               <FilePath>.\LED.h</FilePath>
             </File>
+            <File>
+              <FileName>Display.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Display.c</FilePath>
+            </File>
+            <File>
+              <FileName>Display.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Display.h</FilePath>
+            </File>
+            <File>
+              <FileName>Sonic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sonic.c</FilePath>
+            </File>
+            <File>
+              <FileName>Sonic.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Sonic.h</FilePath>
+            </File>
+            <File>
+              <FileName>CMPS14.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CMPS14.h</FilePath>
+            </File>
+            <File>
+              <FileName>CMPS14.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CMPS14.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\motor.h</FilePath>
+            </File>
+            <File>
+              <FileName>drive.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\drive.c</FilePath>
+            </File>
+            <File>
+              <FileName>drive.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\drive.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
